@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using SuperScrollView;
+using TMPro;
+using UnityEngine;
+using Watermelon.elems;
+using Watermelon.Message;
+using Button = UnityEngine.UI.Button;
+
+namespace Watermelon
+{
+    public class UIGameDispatch : MonoBehaviour
+    {
+        public TextMeshProUGUI Account;
+        public HeadIcon Header;
+        
+        public Button GoLevelBtn;
+        public Button LeaderBoardBtn;
+        public Button LogoutBtn;
+        public Button QuitGameBtn;
+        public Button ChangeNameBtn;
+        
+        private List<LeadBoardInfo> curData;
+        private LeadBoardInfo myData;
+
+        public Action ClickGoLevelBtn;
+        public Action ClickLeaderBoardBtn;
+        public Action ClickLogoutBtn;
+        public Action ClickChangeNameBtn;
+        
+        
+        void Start()
+        {
+            GoLevelBtn.onClick.AddListener(this.OnGoLevel);
+            LeaderBoardBtn.onClick.AddListener(this.OnLeaderBoard);
+            LogoutBtn.onClick.AddListener(this.OnLogout);
+            QuitGameBtn.onClick.AddListener(this.OnQuitGame);
+            ChangeNameBtn.onClick.AddListener(this.OnChangeName);
+            
+            Header.SetCanSelect(false);
+            Header.button.enabled = false;
+            
+            this.InitData();
+        }
+
+        public void InitData()
+        {
+            var mdl = GameGlobal.Instance.GetModule<RoleModule>();
+            Header.SetData(mdl.userData.HeadIcon, false);
+            Account.text = mdl.userData.Nickname;
+        }
+
+        private void OnGoLevel()
+        {
+            this.ClickGoLevelBtn?.Invoke();    
+        }
+        private void OnLeaderBoard()
+        {
+            this.ClickLeaderBoardBtn?.Invoke();    
+        }
+        private void OnLogout()
+        {
+            this.ClickLogoutBtn?.Invoke(); 
+        }
+        private void OnChangeName()
+        {
+            this.ClickChangeNameBtn?.Invoke(); 
+        }
+        private void OnQuitGame()
+        {
+            Application.Quit(0);    
+        }
+    }
+}

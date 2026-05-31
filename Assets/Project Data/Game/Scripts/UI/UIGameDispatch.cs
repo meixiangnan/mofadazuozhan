@@ -19,6 +19,7 @@ namespace Watermelon
         public Button LogoutBtn;
         public Button QuitGameBtn;
         public Button ChangeNameBtn;
+        public Button ShopBtn;
         
         private List<LeadBoardInfo> curData;
         private LeadBoardInfo myData;
@@ -36,6 +37,7 @@ namespace Watermelon
             LogoutBtn.onClick.AddListener(this.OnLogout);
             QuitGameBtn.onClick.AddListener(this.OnQuitGame);
             ChangeNameBtn.onClick.AddListener(this.OnChangeName);
+            ShopBtn.onClick.AddListener(this.OnShop);
             
             Header.SetCanSelect(false);
             Header.button.enabled = false;
@@ -69,6 +71,10 @@ namespace Watermelon
         private void OnQuitGame()
         {
             Application.Quit(0);    
+        }
+        private void OnShop()
+        {
+            UIController.ShowPage<UIShop>();
         }
     }
 }

@@ -115,6 +115,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\TimeUtils.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Level\Effects\TileEffectType.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\GameModule\DiamondModule.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Level\Spawn Animations\LayerSpawnAnimation.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Power Ups\Data\PUHintBehavior.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Power Ups\Data\PUAddTimeSettings.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Attributes\PropertyDrawConditionAttribute.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Currencies Module\Scripts\MD_CurrencyType.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\ReflectionUtils.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\UI\UIShopDiamondItem.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\UI\UILevelNumberText.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Attributes\NativePropertyDrawerAttribute.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Currencies Module\Scripts\CurrencyPrice.cs" />
@@ -365,6 +367,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Attributes\MetaAttributes\InfoBoxAttribute.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\UI\UISDKLogin.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\UI\UIShop.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Audio Controller\AudioController.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Currencies Module\Scripts\Currency.cs" />

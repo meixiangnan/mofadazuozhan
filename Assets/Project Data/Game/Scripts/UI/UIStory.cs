@@ -10,6 +10,7 @@ namespace Watermelon
     public class UIStory : UIPage
     {
         public List<Sprite> StoryBgs = new ();
+        public List<GameObject> StoryBgObjs = new ();
         public List<GameObject> StoryTexts = new ();
 
         public Image StoryImg;
@@ -34,13 +35,25 @@ namespace Watermelon
                 return;
             }
 
-            curStory = curStory % StoryBgs.Count;
+            curStory = curStory % StoryBgObjs.Count;
             Refresh();
         }
 
         private void Refresh()
         {
-            StoryImg.sprite = StoryBgs[curStory];
+            Debug.Log("Refresh"+curStory);
+            //StoryImg.sprite = StoryBgs[curStory];
+            for (int i = 0; i < StoryBgObjs.Count; i++)
+            {
+                if (i == curStory)
+                {
+                    StoryBgObjs[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    StoryBgObjs[i].gameObject.SetActive(false);
+                }
+            }
             for (int i = 0; i < StoryTexts.Count; i++)
             {
                 if (i == curStory)

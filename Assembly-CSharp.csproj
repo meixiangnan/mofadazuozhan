@@ -446,6 +446,7 @@
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\Scripts\AdProvider.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\State System\StateBehavior.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\Lives System\Scripts\AddLivesPanel.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\UI\UIShopItem.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\GameSettingsPrefs\KeyGenerated.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Level\LevelData\LevelData.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

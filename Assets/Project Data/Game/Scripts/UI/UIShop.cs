@@ -16,6 +16,7 @@ namespace Watermelon
         
         [SerializeField] TextMeshProUGUI currentDiamondCount;
         [SerializeField] UIShopDiamondItem[] diamondItems;
+        [SerializeField] UIShopItem[] itemItems;
 
         public override void Initialise()
         {
@@ -24,6 +25,11 @@ namespace Watermelon
             itemBtn.onClick.AddListener(OnItemBtn);
             
             foreach (var item in diamondItems)
+            {
+                item.Init(RefreshDiamondCount);
+            }
+
+            foreach (var item in itemItems)
             {
                 item.Init(RefreshDiamondCount);
             }

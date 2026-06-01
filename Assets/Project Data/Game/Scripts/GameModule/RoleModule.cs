@@ -88,6 +88,31 @@ public class RoleModule : GameModuleBase
             case PUType.AddTime   : ItemNum_AddTime += num; break;
         }
         CheckAllItemNum();
+        SavePowerUpsLocal();
+    }
+
+    public void SavePowerUpsLocal()
+    {
+        PlayerPrefs.SetInt("PU_Undo", ItemNum_Undo);
+        PlayerPrefs.SetInt("PU_Shuffle", ItemNum_Shuffle);
+        PlayerPrefs.SetInt("PU_Hint", ItemNum_Hint);
+        PlayerPrefs.SetInt("PU_ExtraSlot", ItemNum_ExtraSlot);
+        PlayerPrefs.SetInt("PU_AddTime", ItemNum_AddTime);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadPowerUpsLocal()
+    {
+        if (!PlayerPrefs.HasKey("PU_Undo"))
+        {
+            return;
+        }
+
+        ItemNum_Undo = PlayerPrefs.GetInt("PU_Undo", 0);
+        ItemNum_Shuffle = PlayerPrefs.GetInt("PU_Shuffle", 0);
+        ItemNum_Hint = PlayerPrefs.GetInt("PU_Hint", 0);
+        ItemNum_ExtraSlot = PlayerPrefs.GetInt("PU_ExtraSlot", 0);
+        ItemNum_AddTime = PlayerPrefs.GetInt("PU_AddTime", 0);
     }
 
     public void OnFinishTutorial()
@@ -98,6 +123,7 @@ public class RoleModule : GameModuleBase
         ItemNum_Hint     = 3;
         ItemNum_ExtraSlot = 3;
         ItemNum_AddTime  = 3;
+        SavePowerUpsLocal();
     }
 
     public bool IsTutorialOver()
@@ -118,6 +144,7 @@ public class RoleModule : GameModuleBase
         ItemNum_Hint      = resp.ItemNum_Hint;
         ItemNum_ExtraSlot = resp.ItemNum_ExtraSlot;
         ItemNum_AddTime   = resp.ItemNum_AddTime;
+        LoadPowerUpsLocal();
         
         InitAge(resp.BirthYear);
     }
@@ -168,6 +195,7 @@ public class RoleModule : GameModuleBase
         ItemNum_Hint      = resp.ItemNum_Hint;
         ItemNum_ExtraSlot = resp.ItemNum_ExtraSlot;
         ItemNum_AddTime   = resp.ItemNum_AddTime;
+        LoadPowerUpsLocal();
         CanPlaySeconds       = resp.LeftSeconds;
 
         InitAge(resp.BirthYear);
@@ -218,6 +246,7 @@ public class RoleModule : GameModuleBase
         ItemNum_Hint      = resp.ItemNum_Hint;
         ItemNum_ExtraSlot = resp.ItemNum_ExtraSlot;
         ItemNum_AddTime   = resp.ItemNum_AddTime;
+        LoadPowerUpsLocal();
         CanPlaySeconds       = resp.LeftSeconds;
         
         InitAge(resp.BirthYear);
@@ -288,6 +317,7 @@ public class RoleModule : GameModuleBase
             case PUType.AddTime   : ItemNum_AddTime--; break;
         }
         CheckAllItemNum();
+        SavePowerUpsLocal();
     }
 
     private void CheckAllItemNum()

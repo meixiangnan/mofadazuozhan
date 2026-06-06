@@ -68,6 +68,7 @@ MonoBehaviour:
   lockObj: {fileID: 5762131722765435728}
   heroNameText: {fileID: 0}
   heroIdText: {fileID: 0}
+  clickButton: {fileID: 8867548253266615910}
 --- !u!1 &5762131722765435728
 GameObject:
   m_ObjectHideFlags: 0

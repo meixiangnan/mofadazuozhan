@@ -13,6 +13,10 @@ namespace Watermelon
         
         public static Sprite GetHeadIcon(string name)
         {
+            if (instance.headIconsMap==null || instance.headIconsMap[name] == null)
+            {
+                return instance.headIconsMap["tile_1"];
+            }
             return instance.headIconsMap[name];
         }
         

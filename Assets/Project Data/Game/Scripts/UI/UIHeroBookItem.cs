@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,12 +11,30 @@ namespace Watermelon
         [SerializeField] GameObject lockObj;
         [SerializeField] TextMeshProUGUI heroNameText;
         [SerializeField] TextMeshProUGUI heroIdText;
+        [SerializeField] Button clickButton;
 
+        private HeroBookData data;
         private int heroId;
         public int HeroId => heroId;
 
+        public Action<HeroBookData> OnClickHero;
+
+        private void Awake()
+        {
+            if (clickButton == null)
+            {
+                clickButton = GetComponent<Button>();
+            }
+
+            if (clickButton != null)
+            {
+                clickButton.onClick.AddListener(OnClick);
+            }
+        }
+
         public void SetData(HeroBookData data, bool unlocked)
         {
+            this.data = data;
             heroId = data.heroId;
 
             if (heroIcon != null)
@@ -36,6 +55,14 @@ namespace Watermelon
             if (heroIdText != null)
             {
                 heroIdText.text = data.heroId.ToString();
+            }
+        }
+
+        private void OnClick()
+        {
+            if (data != null)
+            {
+                OnClickHero?.Invoke(data);
             }
         }
     }

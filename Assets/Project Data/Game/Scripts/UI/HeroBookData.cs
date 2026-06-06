@@ -9,6 +9,7 @@ namespace Watermelon
         public int heroId;
         public string heroName;
         public Sprite heroSprite;
+        public Sprite heroDetailSprite;
         public bool defaultUnlocked;
     }
 }

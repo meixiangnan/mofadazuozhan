@@ -117,6 +117,26 @@ namespace Watermelon
             return result.ToArray();
         }
 
+        public BackgroundData GetRandomBackgroundData()
+        {
+            if (BackgroundData == null || BackgroundData.Length == 0)
+                return null;
+
+            List<BackgroundData> availableBackgrounds = new List<BackgroundData>();
+            for (int i = 0; i < BackgroundData.Length; i++)
+            {
+                if (BackgroundData[i] != null && BackgroundData[i].BackgroundPrefab != null)
+                {
+                    availableBackgrounds.Add(BackgroundData[i]);
+                }
+            }
+
+            if (availableBackgrounds.Count == 0)
+                return null;
+
+            return availableBackgrounds[Random.Range(0, availableBackgrounds.Count)];
+        }
+
         public BackgroundData GetLastAvailableBackgroundData()
         {
             if (BackgroundData.Length == 0)

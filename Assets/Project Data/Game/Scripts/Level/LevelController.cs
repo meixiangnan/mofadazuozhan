@@ -229,7 +229,7 @@ namespace Watermelon
                 Destroy(Background.gameObject);
 
             if(backgroundData == null)
-                backgroundData = database.GetLastAvailableBackgroundData();
+                backgroundData = database.GetRandomBackgroundData();
 
             if (backgroundData != null)
             {

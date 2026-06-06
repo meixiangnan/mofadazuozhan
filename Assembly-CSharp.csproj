@@ -136,6 +136,7 @@
     <Compile Include="Assets\Project Data\Game\Scripts\UI\UISettingPanal.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Tween\TweenCase.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\Level Map\Scripts\MapData.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\UI\HeroBookData.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\GDPR\GDPRPanel.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Controllers\RaycastController.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\Settings Panel\Scripts\Animation\SettingsScaleAnimation.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\IAP Store\Scripts\IAPStoreOffer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Attributes\PropertyDrawConditionAttribute.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Currencies Module\Scripts\MD_CurrencyType.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\UI\UIHeroBookItem.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\ReflectionUtils.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\UI\UIShopDiamondItem.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\UI\UILevelNumberText.cs" />
@@ -344,6 +346,7 @@
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\UI Manager\Helpers\RaycastGraphics.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\UI\UIMainMenuButton.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\UI\UIHeroBook.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Pool Manager\PoolSettings.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Message\JsonHelper.cs" />
@@ -451,6 +454,7 @@
     <Compile Include="Assets\Project Data\Game\Scripts\Level\LevelData\LevelData.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\doc\资源问题汇总.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Project Data\Template Changelog.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />

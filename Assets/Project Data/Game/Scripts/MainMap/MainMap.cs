@@ -7,6 +7,9 @@ using UnityEngine.UI;
 using Watermelon;
 using Watermelon.MainMap;
 using Watermelon.Map;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Watermelon.MainMap
 {
@@ -24,6 +27,8 @@ public class MainMap : MonoBehaviour
     private int GroupCnt = 0;
     
     public Image chapterBg;
+    [SerializeField] private Sprite[] randomBackgrounds;
+    [SerializeField] private int maxRandomBackgroundIndex = 15;
     
     public ScrollRect scrollRect;
     public LoopListView2 scrollView;
@@ -47,6 +52,7 @@ public class MainMap : MonoBehaviour
 
     public void Refresh()
     {
+        RandomizeBackground();
         scrollView.RefreshAllShownItem();
     }
 
@@ -67,6 +73,37 @@ public class MainMap : MonoBehaviour
         chapterBg.sprite = bg;
         
     }
+    private void RandomizeBackground()
+    {
+        if (chapterBg == null || randomBackgrounds == null || randomBackgrounds.Length == 0)
+        {
+            return;
+        }
+
+        Sprite randomSprite = randomBackgrounds[UnityEngine.Random.Range(0, randomBackgrounds.Length)];
+        if (randomSprite != null)
+        {
+            chapterBg.sprite = randomSprite;
+        }
+    }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        List<Sprite> sprites = new List<Sprite>();
+        for (int i = 1; i <= maxRandomBackgroundIndex; i++)
+        {
+            string assetPath = $"Assets/Project Data/Game/Images_new/main_ui/mainui-{i}.png";
+            Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+            if (sprite != null)
+            {
+                sprites.Add(sprite);
+            }
+        }
+
+        randomBackgrounds = sprites.ToArray();
+    }
+#endif
 
 
     private LoopListViewItem2 GetItemCount(LoopListView2 loopListView, int index)

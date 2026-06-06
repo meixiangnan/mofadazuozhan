@@ -40,6 +40,13 @@ namespace Watermelon
             instance.pointerAnimator.Play(animationHash, -1, 0);
         }
 
+        public static void ActivatePointerWorld(Vector3 worldPosition, int animationHash)
+        {
+            Camera camera = Camera.main;
+            Vector3 screenPosition = camera != null ? camera.WorldToScreenPoint(worldPosition) : worldPosition;
+            ActivatePointer(screenPosition, animationHash);
+        }
+
         public static void ActivateTutorialCanvas(RectTransform element, bool createDummy, bool fadeImage)
         {
             if (isActive)

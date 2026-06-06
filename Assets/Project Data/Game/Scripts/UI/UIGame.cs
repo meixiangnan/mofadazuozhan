@@ -260,6 +260,28 @@ namespace Watermelon
             FloatingMessage.ShowMessage($"已完成到第{level}关");
         }
 
+        public void ResetProgressDev()
+        {
+            LevelSave levelSave = SaveController.GetSaveObject<LevelSave>("level");
+            levelSave.MaxReachedLevelIndex = 0;
+            levelSave.DisplayLevelIndex = 0;
+            levelSave.RealLevelIndex = 0;
+            levelSave.IsPlayingRandomLevel = false;
+            levelSave.LastPlayerLevelIndex = -1;
+
+            var roleModule = GameGlobal.Instance.GetModule<RoleModule>();
+            roleModule.PassLevel = 1;
+
+            for (int heroId = 1; heroId <= GameLevelConfig.ChapterCount; heroId++)
+            {
+                PlayerPrefs.DeleteKey(UIHeroBook.GetHeroUnlockKey(heroId));
+            }
+
+            PlayerPrefs.Save();
+            SaveController.Save(true);
+            FloatingMessage.ShowMessage("进度已重置到第1关");
+        }
+
         public void WinCurrentLevelDev()
         {
             LevelController.instance.OnMatchCompleted(true);

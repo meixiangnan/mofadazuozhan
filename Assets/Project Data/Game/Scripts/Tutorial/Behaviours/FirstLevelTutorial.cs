@@ -356,7 +356,7 @@ namespace Watermelon
         {
             if(tileBehavior != null)
             {
-                TutorialCanvasController.ActivatePointer(tileBehavior.transform.position, TutorialCanvasController.POINTER_DEFAULT);
+                TutorialCanvasController.ActivatePointerWorld(tileBehavior.transform.position, TutorialCanvasController.POINTER_DEFAULT);
 
                 pointerTile = tileBehavior;
             }

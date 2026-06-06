@@ -12,8 +12,15 @@ namespace Watermelon
         public Button closeShakeBtn;
         public Button Logout;
         public Button QuitLevel;
+        public Button OpenDevOverlayBtn;
+        public GameObject DevOverlay;
         
         private bool isInit = false;
+
+        public void SetDevOverlay(GameObject devOverlay)
+        {
+            DevOverlay = devOverlay;
+        }
 
         public void Init()
         {
@@ -27,6 +34,10 @@ namespace Watermelon
                 closeShakeBtn.onClick.AddListener(this.OnClickCloseShakeBtn);
                 Logout.onClick.AddListener(this.OnClickLogOutBtn);
                 QuitLevel.onClick.AddListener(this.OnClickQuitLevelBtn);
+                if (OpenDevOverlayBtn != null)
+                {
+                    OpenDevOverlayBtn.onClick.AddListener(this.OnClickOpenDevOverlayBtn);
+                }
             }
 
             if (AudioController.GetSoundsVolume() > 0) {
@@ -71,6 +82,15 @@ namespace Watermelon
             closeShakeBtn.image.enabled = true;
             AudioController.SetMusicVolume(0);
         }
+
+        private void OnClickOpenDevOverlayBtn()
+        {
+            if (DevOverlay != null)
+            {
+                DevOverlay.SetActive(true);
+            }
+        }
+
         private void OnClickLogOutBtn()
         {
             LevelController.UnloadLevel();

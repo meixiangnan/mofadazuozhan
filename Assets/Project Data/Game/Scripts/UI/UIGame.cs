@@ -47,6 +47,10 @@ namespace Watermelon
 
             tutorialSkipButton.onClick.AddListener(OnTutorialSkipButtonClicked);
             SettingButton.onClick.AddListener(OnSettingPanelClicked);
+            if (settingPanal != null)
+            {
+                settingPanal.SetDevOverlay(devOverlay);
+            }
             
             tutorialSkipButton.gameObject.SetActive(false);
             tutorialTitleText.gameObject.SetActive(false);

@@ -57,24 +57,9 @@ namespace Watermelon
 
         private void SetState(GameOverReason reason)
         {
-            if (reason == GameOverReason.Timeout)
-            {
-                FailedRoot.SetActive(false);
-                FailedRetryRoot.SetActive(false);
-                TimoutRoot.SetActive(true);
-            }
-            else if (reason == GameOverReason.FailedRetry)
-            {
-                FailedRoot.SetActive(false);
-                TimoutRoot.SetActive(false);
-                FailedRetryRoot.SetActive(true);
-            }
-            else
-            {
-                FailedRoot.SetActive(true);
-                TimoutRoot.SetActive(false);
-                FailedRetryRoot.SetActive(false);
-            }
+            FailedRoot.SetActive(true);
+            FailedRetryRoot.SetActive(false);
+            TimoutRoot.SetActive(false);
         }
 
         public override void PlayShowAnimation(object param = null)

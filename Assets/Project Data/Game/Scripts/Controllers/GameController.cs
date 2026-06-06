@@ -158,14 +158,39 @@ namespace Watermelon
             {
                 roleMdl.AddPowerUp(succReward[i], 1);    
             }
-            roleMdl.OnPassLevel();
+            roleMdl.OnPassLevel(LevelController.LastCompletedLevelNumber);
+            int unlockedHeroId = TryUnlockHeroByCompletedLevel(LevelController.LastCompletedLevelNumber);
             
             UIController.HidePage<UIGame>(() =>
             {
-                UIController.ShowPage<UIComplete>(new ShowUICompleteParam(){rewards = succReward});
+                UIController.ShowPage<UIComplete>(new ShowUICompleteParam(){rewards = succReward, unlockedHeroId = unlockedHeroId});
             });
 
             isGameActive = false;
+        }
+
+        private static int TryUnlockHeroByCompletedLevel(int completedLevelNumber)
+        {
+            if (completedLevelNumber <= 0 || completedLevelNumber > GameLevelConfig.TotalLevelCount)
+            {
+                return -1;
+            }
+
+            if (completedLevelNumber % GameLevelConfig.HeroUnlockInterval != 0)
+            {
+                return -1;
+            }
+
+            int heroId = completedLevelNumber / GameLevelConfig.HeroUnlockInterval;
+            string unlockKey = UIHeroBook.GetHeroUnlockKey(heroId);
+            if (PlayerPrefs.GetInt(unlockKey, 0) == 1)
+            {
+                return -1;
+            }
+
+            PlayerPrefs.SetInt(unlockKey, 1);
+            PlayerPrefs.Save();
+            return heroId;
         }
 
         public static void OnLevelFailed(GameOverReason rea)

@@ -35,6 +35,7 @@ namespace Watermelon
         public static int DisplayedLevelIndex => levelSave.DisplayLevelIndex;
 
         private static int loadedLevelIndex;
+        public static int LastCompletedLevelNumber { get; private set; }
 
         public static GameObject LevelObject => instance.levelObject;
 
@@ -239,6 +240,8 @@ namespace Watermelon
         public static void OnTileSubmitted(TileBehavior tileBehavior)
         {
             if (!GameController.IsGameActive) return;
+            if (tileBehavior == null) return;
+            if (levelRepresentation == null || levelRepresentation.Tiles == null) return;
 
             TileEffect effect = tileBehavior.Effect;
             if (effect != null)
@@ -249,6 +252,8 @@ namespace Watermelon
             List<TileBehavior> activeTiles = levelRepresentation.Tiles;
             foreach (TileBehavior tiles in activeTiles)
             {
+                if (tiles == null) continue;
+
                 effect = tiles.Effect;
                 if (effect != null)
                 {
@@ -299,6 +304,7 @@ namespace Watermelon
             if (force || (levelRepresentation.Tiles.Count == 0 && dock.IsEmpty))
             {
                 levelSave.IsPlayingRandomLevel = false;
+                LastCompletedLevelNumber = loadedLevelIndex + 1;
                 levelSave.DisplayLevelIndex++;
 
                 if (levelSave.DisplayLevelIndex > levelSave.MaxReachedLevelIndex)

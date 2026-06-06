@@ -11,7 +11,7 @@ namespace Watermelon.MainMap
 
         public List<MapLevelBehavior> levelEntrys = new();
 
-        public static readonly int LevelMaxNum = 6;
+        public static readonly int LevelMaxNum = GameLevelConfig.LevelsPerChapter;
 
         public void SetData(int start, int end)
         {

@@ -79,7 +79,7 @@ namespace Watermelon
             livesIndicatorScalable.Show();
 
             UILevelNumberText.Show();
-            playButtonText.text = "LEVEL " + (LevelController.MaxReachedLevelIndex + 1);
+            playButtonText.text = "LEVEL " + Mathf.Min(LevelController.MaxReachedLevelIndex + 1, GameLevelConfig.TotalLevelCount);
 
             showHideStoreAdButtonDelayTweenCase = Tween.DelayedCall(0.12f, delegate
             {
@@ -226,7 +226,7 @@ namespace Watermelon
         {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
 
-            OnPlayTriggered(LevelController.MaxReachedLevelIndex);
+            OnPlayTriggered(Mathf.Min(LevelController.MaxReachedLevelIndex, GameLevelConfig.TotalLevelCount - 1));
         }
 
         private void OnLevelOnMapSelected(int levelId)

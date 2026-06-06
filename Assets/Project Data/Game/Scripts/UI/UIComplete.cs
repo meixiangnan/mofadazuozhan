@@ -10,6 +10,7 @@ namespace Watermelon
     public class ShowUICompleteParam
     {
         public List<PUType> rewards = null;
+        public int unlockedHeroId = -1;
     }
 
     public class UIComplete : UIPage
@@ -35,6 +36,10 @@ namespace Watermelon
         public Image reward2;
         public Image reward3;
 
+        [Header("Hero Unlock")]
+        [SerializeField] GameObject heroPanel;
+        [SerializeField] Button heroPanelCloseButton;
+
 
         private TweenCase noThanksAppearTween;
 
@@ -46,6 +51,14 @@ namespace Watermelon
             homeButton.onClick.AddListener(HomeButton);
             nextLevelButton.onClick.AddListener(NextLevelButton);
             closeButton.onClick.AddListener(HomeButton);
+            if (heroPanelCloseButton != null)
+            {
+                heroPanelCloseButton.onClick.AddListener(HideHeroPanel);
+            }
+            if (heroPanel != null)
+            {
+                heroPanel.SetActive(false);
+            }
 
             //coinsPanelUI.Initialise();
 
@@ -61,26 +74,39 @@ namespace Watermelon
             isPageDisplayed = true;
             canvas.enabled = true;
 
+            if (heroPanel != null)
+            {
+                heroPanel.SetActive(false);
+            }
+
             if (null != param && param is ShowUICompleteParam)
             {
                 var inParam = param as ShowUICompleteParam;
-                for (int i = 0; i < inParam.rewards.Count; i++)
+                if (inParam.rewards != null)
                 {
-                    var puType =  inParam.rewards[i];
+                    for (int i = 0; i < inParam.rewards.Count; i++)
+                    {
+                        var puType =  inParam.rewards[i];
 
-                    var puInst = PUController.GetPowerUpBehavior(puType);
-                    if (0 == i)
-                    {
-                        reward1.sprite = puInst.Settings.Icon;
-                        
-                    }else if (1 == i)
-                    {
-                        reward2.sprite = puInst.Settings.Icon;
+                        var puInst = PUController.GetPowerUpBehavior(puType);
+                        if (0 == i)
+                        {
+                            reward1.sprite = puInst.Settings.Icon;
+                            
+                        }else if (1 == i)
+                        {
+                            reward2.sprite = puInst.Settings.Icon;
+                        }
+                        else if (2 == i)
+                        {
+                            reward3.sprite = puInst.Settings.Icon;
+                        }
                     }
-                    else if (2 == i)
-                    {
-                        reward3.sprite = puInst.Settings.Icon;
-                    }
+                }
+
+                if (inParam.unlockedHeroId > 0)
+                {
+                    ShowHeroPanel();
                 }
 
             }
@@ -118,6 +144,22 @@ namespace Watermelon
 
         #endregion
 
+        private void ShowHeroPanel()
+        {
+            if (heroPanel != null)
+            {
+                heroPanel.SetActive(true);
+            }
+        }
+
+        private void HideHeroPanel()
+        {
+            if (heroPanel != null)
+            {
+                heroPanel.SetActive(false);
+            }
+        }
+
         #region RewardLabel
 
         public void ShowRewardLabel(float rewardAmounts, bool immediately = false, float duration = 0.3f, Action onComplted = null)
@@ -136,6 +178,12 @@ namespace Watermelon
 
             UIController.HidePage<UIComplete>(() =>
             {
+                if (LevelController.LastCompletedLevelNumber >= GameLevelConfig.TotalLevelCount)
+                {
+                    GameController.ReturnToMenu();
+                    return;
+                }
+
                 GameController.LoadNextLevel();
             });
         }

@@ -62,14 +62,19 @@ public class RoleModule : GameModuleBase
         isLogin = false;
     }
 
-    public void OnPassLevel()
+    public void OnPassLevel(int completedLevelNumber)
     {
         if (!IsTutorialOver())
         {
             return;
         }
 
-        if (PassLevel >= 501)
+        if (PassLevel >= GameLevelConfig.TotalLevelCount + 1)
+        {
+            return;
+        }
+
+        if (completedLevelNumber != PassLevel)
         {
             return;
         }

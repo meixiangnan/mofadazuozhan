@@ -1,17 +1,18 @@
 %YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
+%TAG !u! tag:yousandi.cn,2023:
 --- !u!1 &22343299519864147
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 5935372080538405952}
   - component: {fileID: 3314526270867949500}
   - component: {fileID: 3052022681591844402}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Play Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,6 +67,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: LEVEL XX
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
   m_sharedMaterial: {fileID: 7543850439555462583, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
@@ -134,18 +136,95 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &302203427392749179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 7
+  m_Component:
+  - component: {fileID: 5670302952317365772}
+  - component: {fileID: 1162574826406652540}
+  - component: {fileID: 7605923485626442223}
+  m_Layer: 5
+  m_HasEditorInfo: 1
+  m_Name: GetHero
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5670302952317365772
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302203427392749179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1759571055492703222}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1162574826406652540
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302203427392749179}
+  m_CullTransparentMesh: 1
+--- !u!114 &7605923485626442223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302203427392749179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5411765}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &459776878650303815
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 6673078117793462570}
   - component: {fileID: 6650501482691431567}
   - component: {fileID: 6222502980396461366}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Price Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,6 +279,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: REMOVE ADS
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
   m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
@@ -274,10 +354,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 356437061666547924}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Safe Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,12 +396,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 3555505089869872467}
   - component: {fileID: 745838923229141480}
   - component: {fileID: 173589608906776623}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,6 +459,7 @@ MonoBehaviour:
   m_text: 'Remove all pop-up ads.
 
     Keep optional ads for rewards.'
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
   m_sharedMaterial: {fileID: 7543850439555462583, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
@@ -451,13 +534,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 40258878786020486}
   - component: {fileID: 2153475058380950384}
   - component: {fileID: 1710109218166226336}
   - component: {fileID: 8354220654431521833}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Not Now Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,10 +656,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 1759571053937907334}
   m_Layer: 0
+  m_HasEditorInfo: 1
   m_Name: SettingsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,13 +692,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 1759571054613392261}
   - component: {fileID: 1759571054613392265}
   - component: {fileID: 1759571054613392264}
   - component: {fileID: 1759571054613392263}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: No Ads Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,13 +815,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 1759571055456970905}
   - component: {fileID: 1759571055456970909}
   - component: {fileID: 1759571055456970908}
   - component: {fileID: 1759571055456970907}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Play Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,13 +937,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 1759571055492703222}
   - component: {fileID: 1759571055492703226}
   - component: {fileID: 1759571055492703224}
   - component: {fileID: 1759571055492703223}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: UI Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,6 +971,7 @@ RectTransform:
   - {fileID: 6794618235289752602}
   - {fileID: 5412247216781573474}
   - {fileID: 156073243269984158}
+  - {fileID: 5670302952317365772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -961,13 +1050,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 1759571055689426399}
   - component: {fileID: 1759571055689426403}
   - component: {fileID: 1759571055689426402}
   - component: {fileID: 1759571055689426401}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: IAP Store Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1083,7 +1173,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 1022591198252726199}
   - component: {fileID: 366142944869646642}
@@ -1091,6 +1181,7 @@ GameObject:
   - component: {fileID: 1593065936345847783}
   - component: {fileID: 1205964341127253222}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Remove Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1224,12 +1315,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 4532145773563493397}
   - component: {fileID: 2950030520212122794}
   - component: {fileID: 4965682447829521404}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Back Stripe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1299,12 +1391,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 6998285208092069747}
   - component: {fileID: 3852982737709128140}
   - component: {fileID: 6372324271557516800}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Top Label Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1375,12 +1468,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 16748870408989323}
   - component: {fileID: 4386652290840240423}
   - component: {fileID: 18023337018123024}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: No Ads Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1450,12 +1544,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 5671936991796154219}
   - component: {fileID: 4328793095549392177}
   - component: {fileID: 6199758755400841472}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Back Stripe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,12 +1620,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 9217679838289516873}
   - component: {fileID: 7103996441222322125}
   - component: {fileID: 5606938297651367117}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Loading Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1600,13 +1696,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 2480796711530468004}
   - component: {fileID: 2429235196541534373}
   - component: {fileID: 3162702672508499128}
   - component: {fileID: 9163888062555502027}
   m_Layer: 0
+  m_HasEditorInfo: 1
   m_Name: Setting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1721,12 +1818,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 4772385250946630720}
   - component: {fileID: 2809393286300001156}
   - component: {fileID: 3868634647033621124}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: No More Ads Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1781,6 +1879,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: NO MORE ADS!
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
   m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
@@ -1855,12 +1954,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 5258322457875048987}
   - component: {fileID: 7547618883077835021}
   - component: {fileID: 1953120073035323409}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Panel Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1935,12 +2035,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 6224918365178255592}
   - component: {fileID: 6224918365178255598}
   - component: {fileID: 6224918365178255593}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Store Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2010,12 +2111,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 6224918365546942028}
   - component: {fileID: 6224918365546942130}
   - component: {fileID: 6224918365546942029}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: No Ads Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2085,12 +2187,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 2022722004040296096}
   - component: {fileID: 6546126108827777321}
   - component: {fileID: 6341773147788244631}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Gradient 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2160,12 +2263,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 7411402979579742403}
   - component: {fileID: 5553005615766752815}
   - component: {fileID: 672119942965743935}
   m_Layer: 0
+  m_HasEditorInfo: 1
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2220,6 +2324,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2294,7 +2399,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 6794618235289752602}
   - component: {fileID: 5088211697022010969}
@@ -2303,6 +2408,7 @@ GameObject:
   - component: {fileID: 5768195765044855298}
   - component: {fileID: 8810008578339937053}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: No Ads Pop Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2448,12 +2554,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 3010875647128909926}
   - component: {fileID: 3701309277252398857}
   - component: {fileID: 999807239559394225}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Not Now Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2508,6 +2615,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Not now
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
   m_sharedMaterial: {fileID: 7543850439555462583, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
@@ -2582,12 +2690,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 3273146162572115704}
   - component: {fileID: 9201583744527263913}
   - component: {fileID: 1640227781074244260}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Gradient 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2780,54 +2889,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMap
       objectReference: {fileID: 0}
-    - target: {fileID: 1250073871787747047, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_text
-      value: "\u90CA\u5916\u5175\u8425"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870975661211436559, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870975661211436559, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870975661211436559, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870975661211436559, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870975661211436559, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870975661211436559, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3427763612864853118, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 990
-      objectReference: {fileID: 0}
-    - target: {fileID: 3427763612864853118, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1497.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 3427763612864853118, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3427763612864853118, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 51.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917219779231630683, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_text
-      value: "\u9ECE\u660E\u9057\u8FF9"
-      objectReference: {fileID: 0}
     - target: {fileID: 5784357648128486329, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2858,7 +2919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5784357648128486329, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 480
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5784357648128486329, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2906,22 +2967,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5784357648128486329, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7073448503994947959, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1497.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7073448503994947959, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1497.303
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782900280395508433, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782900280395508433, guid: c7fc83ce45fff7f4681ab444c290ff7d, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

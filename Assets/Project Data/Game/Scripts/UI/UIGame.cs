@@ -222,17 +222,58 @@ namespace Watermelon
             if (int.TryParse(newLevel, out level))
             {
                 LevelSave levelSave = SaveController.GetSaveObject<LevelSave>("level");
-                levelSave.DisplayLevelIndex = Mathf.Clamp((level - 1), 0, int.MaxValue);
+                levelSave.DisplayLevelIndex = Mathf.Clamp((level - 1), 0, GameLevelConfig.TotalLevelCount - 1);
                 levelSave.RealLevelIndex = levelSave.DisplayLevelIndex;
 
                 GameController.ReplayLevel();
             }
         }
 
+        public void SetCompletedLevelDev(string completedLevel)
+        {
+            if (!int.TryParse(completedLevel, out int level))
+            {
+                FloatingMessage.ShowMessage("关卡输入错误");
+                return;
+            }
+
+            level = Mathf.Clamp(level, 0, GameLevelConfig.TotalLevelCount);
+            int nextLevel = Mathf.Clamp(level + 1, 1, GameLevelConfig.TotalLevelCount + 1);
+
+            LevelSave levelSave = SaveController.GetSaveObject<LevelSave>("level");
+            levelSave.MaxReachedLevelIndex = Mathf.Clamp(level, 0, GameLevelConfig.TotalLevelCount - 1);
+            levelSave.DisplayLevelIndex = Mathf.Clamp(nextLevel - 1, 0, GameLevelConfig.TotalLevelCount - 1);
+            levelSave.RealLevelIndex = levelSave.DisplayLevelIndex;
+            levelSave.IsPlayingRandomLevel = false;
+
+            var roleModule = GameGlobal.Instance.GetModule<RoleModule>();
+            roleModule.PassLevel = nextLevel;
+
+            int unlockedHeroCount = level / GameLevelConfig.HeroUnlockInterval;
+            for (int heroId = 1; heroId <= unlockedHeroCount; heroId++)
+            {
+                PlayerPrefs.SetInt(UIHeroBook.GetHeroUnlockKey(heroId), 1);
+            }
+            PlayerPrefs.Save();
+
+            SaveController.Save(true);
+            FloatingMessage.ShowMessage($"已完成到第{level}关");
+        }
+
+        public void WinCurrentLevelDev()
+        {
+            LevelController.instance.OnMatchCompleted(true);
+        }
+
+        public void FailCurrentLevelDev()
+        {
+            GameController.OnLevelFailed(GameOverReason.Failed);
+        }
+
         public void PrevLevelDev()
         {
             LevelSave levelSave = SaveController.GetSaveObject<LevelSave>("level");
-            levelSave.DisplayLevelIndex = Mathf.Clamp(levelSave.DisplayLevelIndex - 1, 0, int.MaxValue);
+            levelSave.DisplayLevelIndex = Mathf.Clamp(levelSave.DisplayLevelIndex - 1, 0, GameLevelConfig.TotalLevelCount - 1);
             levelSave.RealLevelIndex = levelSave.DisplayLevelIndex;
 
             GameController.ReplayLevel();
@@ -241,7 +282,7 @@ namespace Watermelon
         public void NextLevelDev()
         {
             LevelSave levelSave = SaveController.GetSaveObject<LevelSave>("level");
-            levelSave.DisplayLevelIndex = levelSave.DisplayLevelIndex + 1;
+            levelSave.DisplayLevelIndex = Mathf.Clamp(levelSave.DisplayLevelIndex + 1, 0, GameLevelConfig.TotalLevelCount - 1);
             levelSave.RealLevelIndex = levelSave.DisplayLevelIndex;
 
             GameController.ReplayLevel();

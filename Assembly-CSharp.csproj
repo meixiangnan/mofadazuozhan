@@ -155,6 +155,7 @@
     <Compile Include="Assets\Project Data\Game\Scripts\GameModule\GameModule.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Level\Spawn Animations\OptimisedTilesScaleTweenCase.cs" />
     <Compile Include="Assets\Project Data\SDK\SDKProxy.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\GameLevelConfig.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Security\SafeBool.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Attributes\MetaAttributes\OnValueChangedAttribute.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />

@@ -8,7 +8,12 @@ namespace Watermelon
 
         public void Awake()
         {
-            var camera = Camera.main;
+            Camera camera = Camera.main;
+            if (camera == null || spriteRenderer == null || spriteRenderer.sprite == null)
+            {
+                return;
+            }
+
             transform.position = camera.transform.position + camera.transform.forward * (camera.farClipPlane - 0.01f);
             transform.forward = camera.transform.forward;
 
@@ -18,10 +23,11 @@ namespace Watermelon
             var cameraHeight = camera.orthographicSize * 2;
             var cameraWidth = cameraHeight * camera.aspect;
 
-            if (Camera.main.aspect > spriteAspect)
+            if (camera.aspect > spriteAspect)
             {
                 spriteRenderer.size = new Vector2(cameraWidth, cameraWidth / spriteAspect);
-            } else
+            }
+            else
             {
                 spriteRenderer.size = new Vector2(cameraHeight * spriteAspect, cameraHeight);
             }

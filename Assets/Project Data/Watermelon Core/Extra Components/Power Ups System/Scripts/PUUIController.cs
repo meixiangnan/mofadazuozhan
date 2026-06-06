@@ -55,8 +55,18 @@ namespace Watermelon
 
         private void Update()
         {
+            if (uiBehaviors == null)
+            {
+                return;
+            }
+
             foreach(var uiBehavior in uiBehaviors)
             {
+                if (uiBehavior == null || uiBehavior.Behavior == null)
+                {
+                    continue;
+                }
+
                 if (uiBehavior.Behavior.IsDirty)
                 {
                     uiBehavior.Redraw();
@@ -66,8 +76,18 @@ namespace Watermelon
 
         public void OnLevelStarted(int levelIndex)
         {
+            if (uiBehaviors == null)
+            {
+                return;
+            }
+
             for (int i = 0; i < uiBehaviors.Length; i++)
             {
+                if (uiBehaviors[i] == null)
+                {
+                    continue;
+                }
+
                 if(uiBehaviors[i].Settings.RequiredLevel <= levelIndex)
                 {
                     uiBehaviors[i].Activate();

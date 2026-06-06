@@ -19,10 +19,10 @@ namespace Watermelon.MainMap
 public class MainMap : MonoBehaviour
 {
     private int StartLevel = 1;
-    private int EndLevel = 100;
+    private int EndLevel = GameLevelConfig.LevelsPerChapter;
     
 
-    private readonly int MaxChapterLevelNum = 100; 
+    private readonly int MaxChapterLevelNum = GameLevelConfig.LevelsPerChapter; 
     
     private int GroupCnt = 0;
     
@@ -47,18 +47,44 @@ public class MainMap : MonoBehaviour
         
         scrollView.InitListView(GroupCnt, GetItemCount);
         
-        chapterSwitches[0].SetSelect();
+        SelectChapterByProgress();
     }
 
     public void Refresh()
     {
         RandomizeBackground();
+        SelectChapterByProgress();
         scrollView.RefreshAllShownItem();
+    }
+    private void SelectChapterByProgress()
+    {
+        int progressLevel = GameGlobal.Instance.GetModule<RoleModule>().PassLevelShow;
+        progressLevel = Mathf.Clamp(progressLevel, 1, GameLevelConfig.TotalLevelCount);
+
+        int chapterIndex = ((progressLevel - 1) / GameLevelConfig.LevelsPerChapter) + 1;
+        chapterIndex = Mathf.Clamp(chapterIndex, 1, GameLevelConfig.ChapterCount);
+
+        ChapterSwitch chapterSwitch = chapterSwitches.Find(item => item != null && item.ChapterIndex == chapterIndex);
+        if (chapterSwitch != null)
+        {
+            chapterSwitch.SetSelect();
+            return;
+        }
+
+        if (chapterSwitches.Count > 0 && chapterSwitches[0] != null)
+        {
+            chapterSwitches[0].SetSelect();
+        }
     }
 
 
     public void SwitchChapter(int chapterIndex, Sprite bg)
     {
+        if (chapterIndex < 1 || chapterIndex > GameLevelConfig.ChapterCount)
+        {
+            return;
+        }
+
         StartLevel = 1 + (chapterIndex - 1) * MaxChapterLevelNum;
         EndLevel = StartLevel + MaxChapterLevelNum - 1;
         GroupCnt = ((EndLevel - StartLevel) / ChapterLevelGroup.LevelMaxNum) + 1;
@@ -108,7 +134,7 @@ public class MainMap : MonoBehaviour
 
     private LoopListViewItem2 GetItemCount(LoopListView2 loopListView, int index)
     {
-        if (index < 0 || index >= EndLevel) return null;
+        if (index < 0 || index >= GroupCnt) return null;
 
         int startLevel = StartLevel + index * ChapterLevelGroup.LevelMaxNum;
         int endLevel = startLevel + ChapterLevelGroup.LevelMaxNum;

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SuperScrollView;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 #if UNITY_EDITOR
@@ -20,6 +21,8 @@ namespace Watermelon
         [Header("Hero Detail")]
         [SerializeField] GameObject heroPanel;
         [SerializeField] Image heroImage;
+        [SerializeField] TextMeshProUGUI heroNameText;
+        [SerializeField] TextMeshProUGUI heroDescriptionText;
         [SerializeField] Button heroPanelReturnBtn;
 
         public override void Initialise()
@@ -108,6 +111,16 @@ namespace Watermelon
                 heroImage.sprite = data.heroDetailSprite != null ? data.heroDetailSprite : data.heroSprite;
             }
 
+            if (heroNameText != null)
+            {
+                heroNameText.text = data.heroName;
+            }
+
+            if (heroDescriptionText != null)
+            {
+                heroDescriptionText.text = data.heroDescription;
+            }
+
             ShowHeroPanel();
         }
 
@@ -128,7 +141,8 @@ namespace Watermelon
         }
 
 #if UNITY_EDITOR
-        private void OnValidate()
+        [ContextMenu("重新生成英雄数据（会覆盖名字和描述）")]
+        private void RegenerateHeroDatas()
         {
             List<HeroBookData> datas = new List<HeroBookData>();
             for (int i = 1; i <= maxAutoHeroId; i++)
@@ -153,6 +167,24 @@ namespace Watermelon
             }
 
             heroDatas = datas.ToArray();
+            EditorUtility.SetDirty(this);
+        }
+
+        [ContextMenu("刷新英雄图片（保留名字和描述）")]
+        private void RefreshHeroSprites()
+        {
+            if (heroDatas == null) return;
+
+            for (int i = 0; i < heroDatas.Length; i++)
+            {
+                int heroId = heroDatas[i].heroId;
+                string cardAssetPath = $"Assets/Project Data/Game/Images_new/hero_card/Collection_{heroId}.png";
+                string detailAssetPath = $"Assets/Project Data/Game/Images_new/hero/hero_{heroId}.png";
+                heroDatas[i].heroSprite = AssetDatabase.LoadAssetAtPath<Sprite>(cardAssetPath);
+                heroDatas[i].heroDetailSprite = AssetDatabase.LoadAssetAtPath<Sprite>(detailAssetPath);
+            }
+
+            EditorUtility.SetDirty(this);
         }
 #endif
     }

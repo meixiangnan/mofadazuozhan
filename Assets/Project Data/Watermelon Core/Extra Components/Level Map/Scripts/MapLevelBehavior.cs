@@ -65,7 +65,7 @@ namespace Watermelon.Map
             levelNumber.color = reachedText;
             innerCircle.color = reachedCircle;
 
-            SetLockState(false);
+            SetLockState(true);
             button.gameObject.SetActive(true);
         }
 

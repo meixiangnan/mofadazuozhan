@@ -31,6 +31,7 @@ namespace Watermelon
         public GameObject TimeLimitObj;
         public TextMeshProUGUI TimeLimitText;
         public UISettingPanal settingPanal;
+        public GameObject titleBg;
         
         
         public override void Initialise()
@@ -80,6 +81,7 @@ namespace Watermelon
             
             
             UILevelNumberText.Show();
+            if (titleBg != null) titleBg.SetActive(GameGlobal.Instance.GetModule<RoleModule>().IsTutorialOver());
 
             UIController.OnPageOpened(this);
         }
@@ -155,6 +157,7 @@ namespace Watermelon
             SettingButton.gameObject.SetActive(false);
 
             powerUpsUIController.HidePanels();
+            if (titleBg != null) titleBg.SetActive(false);
         }
 
         public void DisableTutorial()
@@ -163,6 +166,7 @@ namespace Watermelon
 
             levelNumberText.gameObject.SetActive(true);
             SettingButton.gameObject.SetActive(true);
+            if (titleBg != null) titleBg.SetActive(true);
         }
 
         public void SetTutorialText(string title, string description)

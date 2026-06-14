@@ -1,17 +1,18 @@
 %YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
+%TAG !u! tag:yousandi.cn,2023:
 --- !u!1 &75462555477042996
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 4383130900914529791}
   - component: {fileID: 47273870572720306}
   - component: {fileID: 3098303442093791661}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Timer Progressbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,12 +82,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 9163156390602142230}
   - component: {fileID: 2227348370917984278}
   - component: {fileID: 8649368998728451602}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Amount Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,10 +143,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 3
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 499cf83f07b1eca49b41b4b547540c38, type: 2}
-  m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f,
-    type: 2}
+  m_sharedMaterial: {fileID: -3707072339102680950, guid: c2ee9bf6e65695d48ba9d4b5a346538f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -216,10 +218,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 2506374240432801108}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,12 +256,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 8178783761105992462}
   - component: {fileID: 8431828436776908202}
   - component: {fileID: 8258674236850033813}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Active State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,12 +333,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 6365855936167622952}
   - component: {fileID: 8425771701011637572}
   - component: {fileID: 8437310529774838474}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Timer Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,10 +394,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 3
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 365114ea63910134eb86691b0abd4d3b, type: 2}
-  m_sharedMaterial: {fileID: -1283563334402853003, guid: 365114ea63910134eb86691b0abd4d3b,
-    type: 2}
+  m_sharedMaterial: {fileID: -1283563334402853003, guid: 365114ea63910134eb86691b0abd4d3b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -464,12 +469,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 5449179412088214}
   - component: {fileID: 6538263861467785852}
   - component: {fileID: 1331125079444847769}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: PU Behavior UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,12 +670,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 347212132999719245}
   - component: {fileID: 412161168284772940}
   - component: {fileID: 1285548607640457683}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,12 +746,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 5272893110710916837}
   - component: {fileID: 7249944993029298997}
   - component: {fileID: 1084317948365244951}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,6 +807,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u5DF2\u6FC0\u6D3B"
+  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c14ac706d5706a46b86566f56717461, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: c9e626def15f25945a05999749ebc804, type: 2}
@@ -873,12 +882,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 5578453372045978780}
   - component: {fileID: 2805495027337832997}
   - component: {fileID: 7188902184841251098}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Amount Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,7 +943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a7fdaf9dbdd01a840b4c7799c9590c98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 396f4b25c171d4c4cb09e16c147f16f8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -949,12 +959,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 1353962855707991290}
   - component: {fileID: 8332698231284572563}
   - component: {fileID: 6000888146355786471}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,12 +1035,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
+  serializedVersion: 7
   m_Component:
   - component: {fileID: 8452804537874178204}
   - component: {fileID: 3941904648213169975}
   - component: {fileID: 8204024481917590123}
   m_Layer: 5
+  m_HasEditorInfo: 1
   m_Name: Purchase Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

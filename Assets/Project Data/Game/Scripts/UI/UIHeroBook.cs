@@ -12,6 +12,8 @@ namespace Watermelon
     [RequireComponent(typeof(Canvas)), RequireComponent(typeof(GraphicRaycaster))]
     public class UIHeroBook : UIPage
     {
+        private static UIHeroBook instance;
+
         [SerializeField] Button returnBtn;
         [SerializeField] LoopGridView heroGridView;
         [SerializeField] string itemPrefabName = "HeroBookItem";
@@ -24,6 +26,21 @@ namespace Watermelon
         [SerializeField] TextMeshProUGUI heroNameText;
         [SerializeField] TextMeshProUGUI heroDescriptionText;
         [SerializeField] Button heroPanelReturnBtn;
+
+        private void Awake()
+        {
+            instance = this;
+        }
+
+        public static HeroBookData GetHeroDataById(int heroId)
+        {
+            if (instance == null || instance.heroDatas == null) return null;
+            foreach (var data in instance.heroDatas)
+            {
+                if (data.heroId == heroId) return data;
+            }
+            return null;
+        }
 
         public override void Initialise()
         {

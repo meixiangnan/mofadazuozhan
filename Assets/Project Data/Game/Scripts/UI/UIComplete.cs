@@ -39,6 +39,8 @@ namespace Watermelon
         [Header("Hero Unlock")]
         [SerializeField] GameObject heroPanel;
         [SerializeField] Button heroPanelCloseButton;
+        [SerializeField] Image heroImage;
+        [SerializeField] TextMeshProUGUI heroNameText;
 
 
         private TweenCase noThanksAppearTween;
@@ -106,6 +108,14 @@ namespace Watermelon
 
                 if (inParam.unlockedHeroId > 0)
                 {
+                    var heroData = UIHeroBook.GetHeroDataById(inParam.unlockedHeroId);
+                    if (heroData != null)
+                    {
+                        if (heroImage != null)
+                            heroImage.sprite = heroData.heroDetailSprite != null ? heroData.heroDetailSprite : heroData.heroSprite;
+                        if (heroNameText != null)
+                            heroNameText.text = heroData.heroName;
+                    }
                     ShowHeroPanel();
                 }
 

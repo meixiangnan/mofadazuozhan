@@ -256,6 +256,7 @@ namespace Watermelon
             PlayerPrefs.Save();
 
             SaveController.Save(true);
+            StartCoroutine(GameGlobal.Instance.GetModule<RankModule>().UploadRoleData());
             FloatingMessage.ShowMessage($"已完成到第{level}关");
         }
 

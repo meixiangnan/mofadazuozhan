@@ -48,6 +48,7 @@ public class MainMap : MonoBehaviour
         SelectChapterByProgress();
         scrollView.RefreshAllShownItem();
     }
+
     private void SelectChapterByProgress()
     {
         int progressLevel = GameGlobal.Instance.GetModule<RoleModule>().PassLevelShow;
@@ -56,10 +57,14 @@ public class MainMap : MonoBehaviour
         int chapterIndex = ((progressLevel - 1) / GameLevelConfig.LevelsPerChapter) + 1;
         chapterIndex = Mathf.Clamp(chapterIndex, 1, GameLevelConfig.ChapterCount);
 
+        int levelInChapter = (progressLevel - 1) % GameLevelConfig.LevelsPerChapter;
+        int targetGroupIndex = levelInChapter / ChapterLevelGroup.LevelMaxNum;
+
         ChapterSwitch chapterSwitch = chapterSwitches.Find(item => item != null && item.ChapterIndex == chapterIndex);
         if (chapterSwitch != null)
         {
             chapterSwitch.SetSelect();
+            scrollView.RefreshAllShownItemWithFirstIndex(targetGroupIndex);
             return;
         }
 
@@ -87,16 +92,15 @@ public class MainMap : MonoBehaviour
         scrollView.ResetListView();
         scrollView.RefreshAllShownItemWithFirstIndex(0);
 
-        //将bg应用给chapterBg
         chapterBg.sprite = bg;
-        
     }
+
     private LoopListViewItem2 GetItemCount(LoopListView2 loopListView, int index)
     {
         if (index < 0 || index >= GroupCnt) return null;
 
         int startLevel = StartLevel + index * ChapterLevelGroup.LevelMaxNum;
-        int endLevel = startLevel + ChapterLevelGroup.LevelMaxNum;
+        int endLevel = startLevel + ChapterLevelGroup.LevelMaxNum - 1;
         if (endLevel > EndLevel)
         {
             endLevel = EndLevel;

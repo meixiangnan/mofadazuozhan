@@ -65,6 +65,8 @@ namespace Watermelon
         public TextMeshProUGUI UserAndPriviteLogin;
         public TextMeshProUGUI UserAndPriviteReg;
 
+        public GameObject startPanel;
+
 
         private UILoginState curState;
         private bool isDoingCoroutine = false;
@@ -159,6 +161,7 @@ namespace Watermelon
             this.GameDispatch.gameObject.SetActive(false);
             this.LeadBoard.gameObject.SetActive(false);
             this.AgeNotifyBtn.gameObject.SetActive(true);
+            if (startPanel != null) startPanel.SetActive(false);
         }
 
         private void SetState(UILoginState state)
@@ -171,6 +174,7 @@ namespace Watermelon
                 case UILoginState.QuickStart:
                     GetModule<RoleModule>().Logout();
                     this.QuickLoginBtn.gameObject.SetActive(true);
+                    if (startPanel != null) startPanel.SetActive(true);
                     break;
                 case UILoginState.Login:
                     GetModule<RoleModule>().Logout();
@@ -492,7 +496,7 @@ namespace Watermelon
         {
             if (curState == UILoginState.Login)
             {
-                int linkIndex = TMP_TextUtilities.FindIntersectingLink(UserAndPriviteLogin, eventData.position, Camera.main);  // If you are not in a Canvas using Screen Overlay, put your camera instead of null
+                int linkIndex = TMP_TextUtilities.FindIntersectingLink(UserAndPriviteLogin, eventData.position, null);
                 if (linkIndex != -1) 
                 {
                     TMP_LinkInfo linkInfo = UserAndPriviteLogin.textInfo.linkInfo[linkIndex];
@@ -508,10 +512,10 @@ namespace Watermelon
             }
             else if (curState == UILoginState.Reg)
             {
-                int linkIndex = TMP_TextUtilities.FindIntersectingLink(UserAndPriviteReg, eventData.position, Camera.main);  // If you are not in a Canvas using Screen Overlay, put your camera instead of null
+                int linkIndex = TMP_TextUtilities.FindIntersectingLink(UserAndPriviteReg, eventData.position, null);
                 if (linkIndex != -1) 
                 {
-                    TMP_LinkInfo linkInfo = UserAndPriviteLogin.textInfo.linkInfo[linkIndex];
+                    TMP_LinkInfo linkInfo = UserAndPriviteReg.textInfo.linkInfo[linkIndex];
                     if (linkInfo.GetLinkID() == "user")
                     {
                         UserProtocolNotifies();

@@ -15,7 +15,7 @@ namespace Watermelon
         {
             DontDestroyOnLoad(gameObject);
 
-            canvasScaler.matchWidthOrHeight = UIUtils.IsWideScreen(loadingCamera) ? 1 : 0;
+            canvasScaler.matchWidthOrHeight = 1;
 
             OnLoading(0.0f, "");
         }

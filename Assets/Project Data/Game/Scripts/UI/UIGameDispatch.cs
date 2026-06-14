@@ -21,6 +21,8 @@ namespace Watermelon
         public Button ChangeNameBtn;
         public Button ShopBtn;
         public Button HeroBookBtn;
+        public Button SettingBtn;
+        public UISettingPanal SettingPanel;
         
         private List<LeadBoardInfo> curData;
         private LeadBoardInfo myData;
@@ -40,6 +42,14 @@ namespace Watermelon
             ChangeNameBtn.onClick.AddListener(this.OnChangeName);
             ShopBtn.onClick.AddListener(this.OnShop);
             HeroBookBtn.onClick.AddListener(this.OnHeroBook);
+            if (SettingBtn != null)
+            {
+                SettingBtn.onClick.AddListener(this.OnSetting);
+            }
+            if (SettingPanel != null)
+            {
+                SettingPanel.gameObject.SetActive(false);
+            }
             
             Header.SetCanSelect(false);
             Header.button.enabled = false;
@@ -82,6 +92,17 @@ namespace Watermelon
         private void OnHeroBook()
         {
             UIController.ShowPage<UIHeroBook>();
+        }
+
+        private void OnSetting()
+        {
+            if (SettingPanel == null)
+            {
+                return;
+            }
+
+            SettingPanel.gameObject.SetActive(true);
+            SettingPanel.Init();
         }
     }
 }

@@ -76,6 +76,18 @@ namespace Watermelon
 
         public static string GetHeroUnlockKey(int heroId)
         {
+            int userId = -1;
+            RoleModule roleModule = GameGlobal.Instance.GetModule<RoleModule>();
+            if (roleModule != null && roleModule.userData != null)
+            {
+                userId = roleModule.userData.UserId;
+            }
+
+            if (userId > 0)
+            {
+                return $"HeroUnlocked_{userId}_{heroId}";
+            }
+
             return $"HeroUnlocked_{heroId}";
         }
 

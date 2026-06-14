@@ -113,9 +113,6 @@ namespace Watermelon
 
         public void ExitPopUpConfirmExitButton()
         {
-            //if (LivesManager.IsMaxLives)
-            //   LivesManager.RemoveLife();
-
             UIController.HidePage<UIGame>();
 
             GameController.ReturnToMenu();
@@ -136,7 +133,6 @@ namespace Watermelon
                 {
                     TimeLimitObj.SetActive(true);
                 }
-                //leftSecond转换为timespan
                 TimeSpan timeSpan = TimeSpan.FromSeconds(leftSecond);
                 TimeLimitText.text = timeSpan.ToString("mm\\:ss");
             }
@@ -165,7 +161,6 @@ namespace Watermelon
         {
             tutorialPanelObject.SetActive(false);
 
-            //exitButton.gameObject.SetActive(true);
             levelNumberText.gameObject.SetActive(true);
             SettingButton.gameObject.SetActive(true);
         }
@@ -312,6 +307,49 @@ namespace Watermelon
             levelSave.RealLevelIndex = levelSave.DisplayLevelIndex;
 
             GameController.ReplayLevel();
+        }
+
+        public void ClearAllServerDataDev()
+        {
+            StartCoroutine(ClearAllServerDataCoroutine());
+        }
+
+        private System.Collections.IEnumerator ClearAllServerDataCoroutine()
+        {
+            FloatingMessage.ShowMessage("正在清除服务器数据...");
+
+            string url = Watermelon.Message.ServerHelper.GetClearAllDataUrl();
+
+            bool requestDone = false;
+            bool requestSuccess = false;
+
+            HttpManager.Instance.PostJson(url, "{}",
+                (response) =>
+                {
+                    requestSuccess = true;
+                    requestDone = true;
+                },
+                (error) =>
+                {
+                    requestSuccess = false;
+                    requestDone = true;
+                });
+
+            while (!requestDone)
+            {
+                yield return null;
+            }
+
+            if (requestSuccess)
+            {
+                PlayerPrefs.DeleteAll();
+                SaveController.DeleteSaveFile();
+                FloatingMessage.ShowMessage("服务器数据已清除，请重启游戏");
+            }
+            else
+            {
+                FloatingMessage.ShowMessage("清除失败，请检查网络");
+            }
         }
 
         #endregion

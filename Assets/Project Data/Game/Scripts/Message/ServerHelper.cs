@@ -35,6 +35,7 @@ namespace Watermelon.Message
         CreateRole,
         LoadLeaderBoard,
         UploadPassLevel,
+        ClearAllData,
     }
     
     //定义请求上下文
@@ -52,7 +53,7 @@ namespace Watermelon.Message
     {
         //public const string ServerURL = "https://kincolong.online:33055";
         //public const string ServerURL = "https://knoll-underdone-constant.ngrok-free.dev";
-        public const string ServerURL = "http://192.168.0.108:33055";
+        public const string ServerURL = "http://192.168.0.109:33055";
         
         //根据枚举返回对应的URL
         private static string GetURL(ServerMethod method)
@@ -71,6 +72,8 @@ namespace Watermelon.Message
                     return ServerURL + "/game/load_leaderboard";
                 case ServerMethod.UploadPassLevel:
                     return ServerURL + "/game/upload_pass_level";
+                case ServerMethod.ClearAllData:
+                    return ServerURL + "/admin/clear_all_data";
             }
             Debug.LogError("ServerHelper GetURL method not found");
             return "";
@@ -87,9 +90,10 @@ namespace Watermelon.Message
             string json = JsonUtility.ToJson(ctx.Req);
             yield return HttpManager.Instance.ReqTask<TResp>(url, ctx);
         }
-        
-        
-        
-        
+
+        public static string GetClearAllDataUrl()
+        {
+            return ServerURL + "/admin/clear_all_data";
+        }
     }
 }

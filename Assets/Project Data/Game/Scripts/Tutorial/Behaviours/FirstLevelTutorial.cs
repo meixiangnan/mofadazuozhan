@@ -26,11 +26,11 @@ namespace Watermelon
         [SerializeField] LevelData firstLevelData;
         [SerializeField] PreloadedLevelData firstPreloadedLevelData;
         readonly string firstStepTitle = "操作方法";
-        readonly string firstStepMessage = "点击法术卡牌将其放入蓄力区。\n蓄力三次即可成功放出法术。";
+        readonly string firstStepMessage = "点击要消除的卡牌放入消除区。\n积累三张相同的卡牌即可消除。";
 
         [Header("Step II")]
         readonly string secondStepTitle = "很棒";
-        readonly string secondStepMessage = "继续释放更多的法术。";
+        readonly string secondStepMessage = "继续消除更多的卡牌。";
 
         [Header("Step III")]
         [SerializeField] LevelData thirdLevelData;
@@ -44,7 +44,7 @@ namespace Watermelon
 
         [Header("Step V")]
         readonly string fifthStepTitle = "立即消除";
-        readonly string fifthStepMessage = "立即在场上找到相同的法术卡。\n将缓冲区最左侧法术凑齐三次蓄力施放。";
+        readonly string fifthStepMessage = "立即在场上找到相同的卡牌。\n将消除区最左侧卡牌凑齐三张立即消除。";
 
         [Header("Step VI")]
         readonly string sixthStepTitle = "重新排列";
@@ -56,7 +56,7 @@ namespace Watermelon
 
         [Header("Step IIX")]
         readonly string eighthStepTitle = "撤销操作";
-        readonly string eighthStepMessage = "立即将上一步选中的法术卡牌放回场上牌堆中。";
+        readonly string eighthStepMessage = "立即将上一步选中的卡牌放回场上牌堆中。";
 
         [Header("Step IX")]
         readonly string ninthStepTitle = "很棒";
@@ -66,11 +66,11 @@ namespace Watermelon
         [SerializeField] LevelData KeyLevelData;
         [SerializeField] PreloadedLevelData KeyPreloadedLevelData;
         readonly string tenStepTitle = "快速通关秘诀";
-        readonly string tenStepMessage = "找到金色魔法钥匙。";
+        readonly string tenStepMessage = "找到绿色光芒笼罩的卡牌。";
         
 
         [Header("Finish")]
-        readonly string finishTitle = "你是一名合格的魔法师！";
+        readonly string finishTitle = "你是一名合格的勇者！";
 
         private bool isActive;
         public override bool IsActive => isActive;

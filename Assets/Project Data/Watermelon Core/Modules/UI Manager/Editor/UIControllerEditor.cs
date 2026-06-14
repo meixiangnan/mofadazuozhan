@@ -14,7 +14,10 @@ namespace Watermelon
             if (uiController != null)
             {
                 CanvasScaler canvasScaler = uiController.gameObject.GetComponent<CanvasScaler>();
-                canvasScaler.matchWidthOrHeight = UIUtils.IsWideScreen(Camera.main) ? 1 : 0;
+                if (canvasScaler != null)
+                {
+                    canvasScaler.matchWidthOrHeight = 1;
+                }
             }
         }
 

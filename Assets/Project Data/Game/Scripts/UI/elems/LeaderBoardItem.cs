@@ -23,7 +23,10 @@ public class LeaderBoardItem : MonoBehaviour
     public void SetData(LeadBoardInfo data, bool resetBg = true)
     {
         nickName.text = data.Name;
-        Score.text = data.Score + "关";
+        int score = 0;
+        int.TryParse(data.Score, out score);
+        score = Mathf.Clamp(score, 0, 300);
+        Score.text = score + "关";
         Rank.text = data.Rank.ToString();
 
         if (resetBg)

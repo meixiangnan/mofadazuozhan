@@ -22,6 +22,9 @@ public class MainMap : MonoBehaviour
     private int GroupCnt = 0;
     
     public Image chapterBg;
+
+    [Header("Chapter Backgrounds")]
+    public List<Sprite> chapterBackgrounds = new List<Sprite>();
     
     public ScrollRect scrollRect;
     public LoopListView2 scrollView;
@@ -92,7 +95,38 @@ public class MainMap : MonoBehaviour
         scrollView.ResetListView();
         scrollView.RefreshAllShownItemWithFirstIndex(0);
 
-        chapterBg.sprite = bg;
+        UpdateChapterVisuals();
+        UpdateChapterBackground(chapterIndex, bg);
+    }
+
+    private void UpdateChapterVisuals()
+    {
+        int progressLevel = GameGlobal.Instance.GetModule<RoleModule>().PassLevelShow;
+        progressLevel = Mathf.Clamp(progressLevel, 1, GameLevelConfig.TotalLevelCount);
+        int unlockedChapterIndex = ((progressLevel - 1) / GameLevelConfig.LevelsPerChapter) + 1;
+        unlockedChapterIndex = Mathf.Clamp(unlockedChapterIndex, 1, GameLevelConfig.ChapterCount);
+
+        for (int i = 0; i < chapterSwitches.Count; i++)
+        {
+            if (chapterSwitches[i] == null)
+            {
+                continue;
+            }
+
+            chapterSwitches[i].SetUnlockVisual(chapterSwitches[i].ChapterIndex <= unlockedChapterIndex);
+        }
+    }
+
+    private void UpdateChapterBackground(int chapterIndex, Sprite fallbackBg)
+    {
+        int bgIndex = chapterIndex - 1;
+        if (chapterBackgrounds != null && bgIndex >= 0 && bgIndex < chapterBackgrounds.Count && chapterBackgrounds[bgIndex] != null)
+        {
+            chapterBg.sprite = chapterBackgrounds[bgIndex];
+            return;
+        }
+
+        chapterBg.sprite = fallbackBg;
     }
 
     private LoopListViewItem2 GetItemCount(LoopListView2 loopListView, int index)

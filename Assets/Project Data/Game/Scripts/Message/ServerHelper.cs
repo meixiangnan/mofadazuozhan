@@ -53,7 +53,7 @@ namespace Watermelon.Message
     {
         public const string ServerURL = "https://kincolong.online:33055";
         //public const string ServerURL = "https://knoll-underdone-constant.ngrok-free.dev";
-        //public const string ServerURL = "http://192.168.0.109:33055";
+        //public const string ServerURL = "http://192.168.0.110:33055";
         
         //根据枚举返回对应的URL
         private static string GetURL(ServerMethod method)

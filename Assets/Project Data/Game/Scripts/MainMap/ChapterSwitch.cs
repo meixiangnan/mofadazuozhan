@@ -8,6 +8,11 @@ namespace Watermelon.MainMap
         public int ChapterIndex = 0;
         public Sprite bg;
         public Button btn;
+
+        [Header("Chapter Icons")]
+        public Image iconImage;
+        public Sprite normalIcon;
+        public Sprite selectedIcon;
         
         public delegate void SelectAction(int index, Sprite bg);
         public event SelectAction OnSelect;
@@ -15,6 +20,20 @@ namespace Watermelon.MainMap
         public void SetSelect()
         {
             OnSelect?.Invoke(ChapterIndex, bg);
+        }
+
+        public void SetUnlockVisual(bool unlocked)
+        {
+            if (iconImage == null)
+            {
+                return;
+            }
+
+            Sprite targetSprite = unlocked ? selectedIcon : normalIcon;
+            if (targetSprite != null)
+            {
+                iconImage.sprite = targetSprite;
+            }
         }
 
         void Start()

@@ -69,11 +69,11 @@ namespace Watermelon
                 case GameErrorCode.InvaildUserId: FloatingMessage.ShowMessage("角色错误"); break;
                 case GameErrorCode.InvaildToken: FloatingMessage.ShowMessage("开始登录"); break;
                 case GameErrorCode.DBError: FloatingMessage.ShowMessage("服务器错误"); break;
-                case GameErrorCode.IdCardLengthError: FloatingMessage.ShowMessage("证件号码长度错误"); break;
-                case GameErrorCode.IdCardDigitError: FloatingMessage.ShowMessage("证件号码无效字符"); break;
-                case GameErrorCode.IdCardAgeError: FloatingMessage.ShowMessage("证件号码年龄不合法"); break;
-                case GameErrorCode.IdCardAreaError: FloatingMessage.ShowMessage("证件号码区域无效"); break;
-                case GameErrorCode.IdCardCheckSumError: FloatingMessage.ShowMessage("证件号码不符合规范"); break;
+                case GameErrorCode.IdCardLengthError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
+                case GameErrorCode.IdCardDigitError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
+                case GameErrorCode.IdCardAgeError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
+                case GameErrorCode.IdCardAreaError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
+                case GameErrorCode.IdCardCheckSumError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
                 case GameErrorCode.NickNameIsNull: FloatingMessage.ShowMessage("昵称为空"); break;
                 case GameErrorCode.HeadIconIsNull: FloatingMessage.ShowMessage("未选择头像"); break;
                 case GameErrorCode.AccountExists: FloatingMessage.ShowMessage("账号已存在"); break;

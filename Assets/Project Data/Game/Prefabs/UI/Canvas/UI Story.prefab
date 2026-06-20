@@ -34,11 +34,11 @@ RectTransform:
   - {fileID: 4996783192432987633}
   m_Father: {fileID: 806369969578542041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -519.62}
-  m_SizeDelta: {x: 660, y: 194.2399}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 30, y: 160.39}
+  m_SizeDelta: {x: 660, y: 194.23987}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &545736371732978016
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -327,11 +327,11 @@ RectTransform:
   - {fileID: 910489569642104382}
   m_Father: {fileID: 806369969578542041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -488}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 30, y: 160.39}
   m_SizeDelta: {x: 660, y: 131}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7967177752604106011
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -939,11 +939,11 @@ RectTransform:
   - {fileID: 5136224904085161904}
   m_Father: {fileID: 806369969578542041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -488}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 30, y: 160.39}
   m_SizeDelta: {x: 660, y: 131}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6828231750825435187
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u738B\u56FD\u518D\u6B21\u53D7\u5230\u9B54\u65CF\u5A01\u80C1\uFF0C\u56FD\u738B\u7167\u4F20\u8BF4\u7684\u65B9\u6CD5\u53EC\u5524\u52C7\u8005\u5374\u4E00\u76F4\u6CA1\u80FD\u6210\u529F"
+  m_text: "\u738B\u56FD\u518D\u6B21\u53D7\u5230\u9B54\u65CF\u5A01\u80C1\uFF0C\u56FD\u738B\u7167\u4F20\u8BF4\u7684\u65B9\u6CD5\u53EC\u5524\u52C7\u8005\u5374\u4E00\u76F4\u6CA1\u80FD\u6210\u529F\u3002"
   m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 221128757c061b948a0778a01d54a38a, type: 2}

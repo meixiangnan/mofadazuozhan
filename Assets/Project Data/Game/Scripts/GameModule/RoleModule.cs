@@ -175,7 +175,7 @@ public class RoleModule : GameModuleBase
 
     public void ShowAdultNotify()
     {
-        NotifyDialog.NotifyClose(DialogState.Notice, "提示", "    您的账号已被纳入防沉迷系统。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六、周日和法定节假日的20:00-21:00登入游戏，其他时间将无法为未成年人用户提供游戏服务。");
+        NotifyDialog.NotifyClose(DialogState.Notice, "防沉迷提示", "    您的账号已被纳入防沉迷系统。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六、周日和法定节假日的20:00-21:00登入游戏，其他时间将无法为未成年人用户提供游戏服务。");
         isShowAdultNotify = true;
     }
 

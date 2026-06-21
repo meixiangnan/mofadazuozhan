@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -350,21 +350,7 @@ namespace Watermelon
 
             RoleModule roleModule = GetModule<RoleModule>();
             roleModule.OnCreateRoleSucc(req);
-
-            if (!roleModule.IsAdult())
-            {
-                if (roleModule.IsNeedShowUnAdult())
-                {
-                    roleModule.ShowAdultNotify();
-                }
-                StartLogin();
-            }
-            else
-            {
-                GetModule<RoleModule>().RecordLogin();
-                ToGameDispatch();
-            }
-           
+            HandleLoginCompletedByAntiAddiction();
         }
 
 
@@ -445,8 +431,7 @@ namespace Watermelon
                 yield break;
             }
             
-            ToGameDispatch();
-            GetModule<RoleModule>().RecordLogin();
+            HandleLoginCompletedByAntiAddiction();
         }
 
 
@@ -482,8 +467,65 @@ namespace Watermelon
                 yield break;
             }
 
-            ToGameDispatch();
-            GetModule<RoleModule>().RecordLogin();
+            HandleLoginCompletedByAntiAddiction();
+        }
+
+        private void HandleLoginCompletedByAntiAddiction()
+        {
+            RoleModule roleModule = GetModule<RoleModule>();
+            if (roleModule.IsAdult())
+            {
+                roleModule.RecordLogin();
+                ToGameDispatch();
+                return;
+            }
+
+            bool canPlayNow = roleModule.IsMinorPlayableTimeNow();
+            string content = GetAntiAddictionLoginContent(roleModule.Age, canPlayNow);
+            if (!canPlayNow)
+            {
+                ShowMessage("防沉迷提示", content, () =>
+                {
+                    StartLogin();
+                });
+                return;
+            }
+
+            ShowMessage("防沉迷提示", content, () =>
+            {
+                roleModule.RecordLogin();
+                ToGameDispatch();
+            });
+        }
+
+        private string GetAntiAddictionLoginContent(int age, bool canPlayNow)
+        {
+            if (!canPlayNow)
+            {
+                if (age < 8)
+                {
+                    return "       您当前登录的是未满8岁的未成年人实名帐号，仅可在周五、周六、周日和法定节假日的20：00-21：00登入游戏，其他时间均不能登录游戏。请您合理安排游戏时间，适度游戏益脑，沉迷游戏伤身。";
+                }
+
+                if (age < 16)
+                {
+                    return "        您当前登录的是8岁以上未满16岁的未成年人实名帐号，仅可在周五、周六、周日和法定节假日的20：00-21：00登入游戏，其他时间均不能登录游戏。请您合理安排游戏时间，适度游戏益脑，沉迷游戏伤身。";
+                }
+
+                return "        您当前登录的是16岁以上未满18岁的未成年人实名帐号，仅可在周五、周六、周日和法定节假日的20：00-21：00登入游戏，其他时间均不能登录游戏。请您合理安排游戏时间，适度游戏益脑，沉迷游戏伤身。";
+            }
+
+            if (age < 8)
+            {
+                return "        您当前登录的是未满8岁的未成年人实名帐号，仅可在周五、周六、周日和法定节假日的20：00-21：00登入游戏，其他时间均不能登录游戏。您在游玩本游戏时不能充值。请您合理安排游戏时间，适度游戏益脑，沉迷游戏伤身。";
+            }
+
+            if (age < 16)
+            {
+                return "        您当前登录的是8岁以上未满16岁的未成年人实名帐号，仅可在周五、周六、周日和法定节假日的20：00-21：00登入游戏，其他时间均不能登录游戏。您在游玩本游戏时，单笔充值金额不得超过50元人民币，每月充值金额累计不得超过200元人民币。请您合理安排游戏时间，适度游戏益脑，沉迷游戏伤身。";
+            }
+
+            return "        您当前登录的是16岁以上未满18岁的未成年人实名帐号，仅可在周五、周六、周日和法定节假日的20：00-21：00登入游戏，其他时间均不能登录游戏。您在游玩本游戏时，单笔充值金额不得超过100元人民币，每月充值金额累计不得超过400元人民币。请您合理安排游戏时间，适度游戏益脑，沉迷游戏伤身。";
         }
 
         public void ShowMessage(string title, string content)
@@ -492,6 +534,11 @@ namespace Watermelon
             NoticePanel.SetData(title, content);
         }
 
+        public void ShowMessage(string title, string content, Action onClose)
+        {
+            NoticePanel.gameObject.SetActive(true);
+            NoticePanel.SetData(title, content, onClose);
+        }
         public void OnPointerClick(PointerEventData eventData)
         {
             if (curState == UILoginState.Login)

@@ -41,6 +41,10 @@ public class RoleModule : GameModuleBase
     private bool isNeedShowAdultNotify = false;
     private bool isShowAdultNotify = false;
 
+    private const int AntiAddictionStartHour = 20;
+    private const int AntiAddictionEndHour = 21;
+    private const double AntiAddictionLeftNotifySeconds = 15 * 60;
+
 
     public int PassLevelShow
     {
@@ -375,23 +379,48 @@ public class RoleModule : GameModuleBase
             return;
         }
 
-        var passTime = DateTime.Now - LoginTick;
-        var loginLeft = CanPlaySeconds - passTime.TotalSeconds;
+        double loginLeft = GetAntiAddictionLeftSeconds();
         
-        const double NotifySecond = 15 * 60;
-  
-        
-        if (!isNotifyLeft && loginLeft < NotifySecond)
+        if (!isNotifyLeft && loginLeft > 0 && loginLeft <= AntiAddictionLeftNotifySeconds)
         {
-            NotifyDialog.NotifyClose(DialogState.Notice, "提示", "    您目前为未成年账号，已被纳入防沉迷系统。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，我们于每周五、周六、周日和法定节假日的20:00-21:00时，向未成年人提供1小时的网络游戏的服务。\n    您当日剩余时长不足15分钟，请注意您的游戏时长。");
+            NotifyDialog.NotifyClose(DialogState.NoticeConfirmOnly, "防沉迷提示", "        您当前登录的是未成年人帐号，已被纳入防沉迷系统。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六、周日和法定节假日的20：00-21：00登入游戏。\n        您当日剩余游戏时长已不足15分钟，请注意您的游戏时长。");
             isNotifyLeft = true;
         }
         
-        if (!isNotifyTimeOver && loginLeft < 0)
+        if (!isNotifyTimeOver && loginLeft <= 0)
         {
             GameController.isGamePause = true;
-            NotifyDialog.NotifyClose(DialogState.QuitGame, "提示", "    您已被强制下线。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六周日和法定节假日的20:00-21:00登入游戏。");
+            NotifyDialog.NotifyClose(DialogState.QuitGame, "防沉迷提示", "        您已被强制下线。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六、周日和法定节假日的20：00-21：00登入游戏。");
             isNotifyTimeOver = true;
         }
+    }
+
+    private double GetAntiAddictionLeftSeconds()
+    {
+        DateTime now = DateTime.Now;
+        DateTime playEndTime = now.Date.AddHours(AntiAddictionEndHour);
+        double timeWindowLeft = (playEndTime - now).TotalSeconds;
+
+        if (CanPlaySeconds > 0)
+        {
+            TimeSpan passTime = now - LoginTick;
+            double serverQuotaLeft = CanPlaySeconds - passTime.TotalSeconds;
+            return Math.Min(serverQuotaLeft, timeWindowLeft);
+        }
+
+        return timeWindowLeft;
+    }
+
+    public bool IsMinorPlayableTimeNow()
+    {
+        if (IsAdult())
+        {
+            return true;
+        }
+
+        DateTime now = DateTime.Now;
+        bool isPlayableHour = now.Hour >= AntiAddictionStartHour && now.Hour < AntiAddictionEndHour;
+        bool hasServerQuota = CanPlaySeconds > 0;
+        return isPlayableHour && hasServerQuota;
     }
 }

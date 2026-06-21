@@ -135,11 +135,10 @@ namespace Watermelon.Message
             return checkDigit.ToString() == idCardNumber[17].ToString().ToUpper();
         }
         
-        //校验身份证号中的年龄是否有效，有效区间为18岁到120岁
         public static bool ValidateAgeFromIDCard(string idCardNumber)
         {
             int age = GetAgeFromIDCard(idCardNumber);
-            return age >= 8 && age <= 120;
+            return age >= 1 && age <= 120;
         }
         
         //根据身份证号获取年龄

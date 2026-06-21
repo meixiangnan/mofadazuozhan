@@ -1606,6 +1606,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3981537072960221733, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
+      propertyPath: priceYuan
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981537072960221733, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: diamondAmount
       value: 10
       objectReference: {fileID: 0}
@@ -1864,6 +1868,10 @@ PrefabInstance:
       value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3981537072960221733, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
+      propertyPath: priceYuan
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981537072960221733, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: diamondAmount
       value: 1500
       objectReference: {fileID: 0}
@@ -2004,6 +2012,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 634010281cfea3c4483e004d7b49dd87, type: 3}
+    - target: {fileID: 3981537072960221733, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
+      propertyPath: priceYuan
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3981537072960221733, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: diamondAmount
       value: 720
@@ -2264,6 +2276,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: m_text
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981537072960221733, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
+      propertyPath: priceYuan
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3981537072960221733, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}

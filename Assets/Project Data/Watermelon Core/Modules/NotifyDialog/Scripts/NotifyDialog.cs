@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace Watermelon
     public enum DialogState
     {
         Notice,
+        NoticeConfirmOnly,
         QuitGame,
     }
 
@@ -22,15 +24,29 @@ namespace Watermelon
         [SerializeField] public TextMeshProUGUI content;
         
         private bool isInit = false;
+        private Action onClose;
+        private TextAlignmentOptions defaultContentAlignment;
         public void Initialise()
         {
             sDialog = this;
+            defaultContentAlignment = content.alignment;
             sDialog.gameObject.SetActive(false);
         }
 
         public static void NotifyClose(DialogState state, string title, string content)
         {
-            sDialog.SetData(title, content);
+            NotifyClose(state, title, content, null);
+        }
+
+        public static void NotifyClose(DialogState state, string title, string content, Action onClose)
+        {
+            NotifyClose(state, title, content, onClose, sDialog.defaultContentAlignment);
+        }
+
+        public static void NotifyClose(DialogState state, string title, string content, Action onClose, TextAlignmentOptions contentAlignment)
+        {
+            sDialog.onClose = onClose;
+            sDialog.SetData(title, content, contentAlignment);
             sDialog.SetState(state);
             sDialog.gameObject.SetActive(true);
         }
@@ -48,6 +64,13 @@ namespace Watermelon
                 closeBtn.onClick.AddListener(this.OnClickCloseBtn);
                 okBtn.onClick.AddListener(this.OnClickCloseBtn);
             }
+            else if (state == DialogState.NoticeConfirmOnly)
+            {
+                okBtn.gameObject.SetActive(true);
+                closeBtn.gameObject.SetActive(false);
+                
+                okBtn.onClick.AddListener(this.OnClickCloseBtn);
+            }
             else //if (state != DialogState.QuitGame)
             {
                 okBtn.gameObject.SetActive(true);
@@ -59,6 +82,11 @@ namespace Watermelon
 
         public void SetData(string _title, string _content)
         {
+            SetData(_title, _content, defaultContentAlignment);
+        }
+
+        public void SetData(string _title, string _content, TextAlignmentOptions contentAlignment)
+        {
             if (!isInit)
             {
                 isInit = true;
@@ -66,12 +94,16 @@ namespace Watermelon
             
             title.text = _title;
             content.text = _content;
+            content.alignment = contentAlignment;
             scrollRect.normalizedPosition = new Vector2(scrollRect.normalizedPosition.x, 1f);
         }
         
         private void OnClickCloseBtn()
         {
             sDialog.gameObject.SetActive(false);
+            Action callback = onClose;
+            onClose = null;
+            callback?.Invoke();
         }
 
         private void QuitGame()
@@ -84,6 +116,7 @@ namespace Watermelon
             }
             
             sDialog.gameObject.SetActive(false);
+            onClose = null;
             LevelController.UnloadLevel();
             GameController.OnLevelCancel();
             UIController.HidePage<UIMainMenu>();

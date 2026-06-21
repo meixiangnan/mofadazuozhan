@@ -51,7 +51,7 @@ namespace Watermelon.Message
     
     public class ServerHelper
     {
-        public const string ServerURL = "https://kincolong.online:33055";
+        public const string ServerURL = "http://82.157.147.7:33055";
         //public const string ServerURL = "https://knoll-underdone-constant.ngrok-free.dev";
         //public const string ServerURL = "http://192.168.0.110:33055";
         

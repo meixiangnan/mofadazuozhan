@@ -51,9 +51,11 @@ namespace Watermelon.Message
     
     public class ServerHelper
     {
-        public const string ServerURL = "https://bzhero.online";
+        //public const string ServerURL = "https://bzhero.online";
         //public const string ServerURL = "https://knoll-underdone-constant.ngrok-free.dev";
         //public const string ServerURL = "http://192.168.0.110:33055";
+        public const string ServerURL = "http://bzhero.online";
+        
         
         //根据枚举返回对应的URL
         private static string GetURL(ServerMethod method)

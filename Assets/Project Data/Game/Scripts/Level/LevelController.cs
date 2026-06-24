@@ -228,13 +228,25 @@ namespace Watermelon
             if (Background != null)
                 Destroy(Background.gameObject);
 
-            if(backgroundData == null)
+            if (!IsValidBackgroundData(backgroundData))
                 backgroundData = database.GetRandomBackgroundData();
 
             if (backgroundData != null)
             {
                 Background = Instantiate(backgroundData.BackgroundPrefab).GetComponent<BackgroundBehavior>();
             }
+        }
+
+        private bool IsValidBackgroundData(BackgroundData backgroundData)
+        {
+            if (backgroundData == null || backgroundData.BackgroundPrefab == null)
+                return false;
+
+            SpriteRenderer renderer = backgroundData.BackgroundPrefab.GetComponent<SpriteRenderer>();
+            if (renderer == null)
+                renderer = backgroundData.BackgroundPrefab.GetComponentInChildren<SpriteRenderer>(true);
+
+            return renderer != null && renderer.sprite != null;
         }
 
         public static void OnTileSubmitted(TileBehavior tileBehavior)

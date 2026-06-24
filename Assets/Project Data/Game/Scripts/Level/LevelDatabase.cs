@@ -125,7 +125,7 @@ namespace Watermelon
             List<BackgroundData> availableBackgrounds = new List<BackgroundData>();
             for (int i = 0; i < BackgroundData.Length; i++)
             {
-                if (BackgroundData[i] != null && BackgroundData[i].BackgroundPrefab != null)
+                if (IsValidBackgroundData(BackgroundData[i]))
                 {
                     availableBackgrounds.Add(BackgroundData[i]);
                 }
@@ -158,6 +158,18 @@ namespace Watermelon
             }
 
             return null;
+        }
+
+        private bool IsValidBackgroundData(BackgroundData backgroundData)
+        {
+            if (backgroundData == null || backgroundData.BackgroundPrefab == null)
+                return false;
+
+            SpriteRenderer renderer = backgroundData.BackgroundPrefab.GetComponent<SpriteRenderer>();
+            if (renderer == null)
+                renderer = backgroundData.BackgroundPrefab.GetComponentInChildren<SpriteRenderer>(true);
+
+            return renderer != null && renderer.sprite != null;
         }
 
         [Button]

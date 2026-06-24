@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using Watermelon.GameModule;
 using Watermelon.Message;
@@ -63,7 +63,7 @@ namespace Watermelon
         {
             switch (err)
             {
-                case GameErrorCode.Fail          : FloatingMessage.ShowMessage("请重新登陆"); break;
+                case GameErrorCode.Fail          : FloatingMessage.ShowMessage("请求失败，请检查网络或稍后重试"); break;
                 case GameErrorCode.InvaildAccount: FloatingMessage.ShowMessage("请登录"); break;
                 case GameErrorCode.PasswordError: FloatingMessage.ShowMessage("密码错误"); break;
                 case GameErrorCode.InvaildUserId: FloatingMessage.ShowMessage("角色错误"); break;

@@ -297,6 +297,12 @@ namespace Watermelon
             req.IdName = RegRealNameInput.text;
             req.IdCard = RegRealIdCardInput.text;
 
+            if(string.IsNullOrEmpty(req.Account) || string.IsNullOrEmpty(RegPasswordInput.text))
+            {
+                this.ShowError(GameErrorCode.UserOrPwdNull);
+                yield break;
+            }
+
             if(string.IsNullOrEmpty(req.IdName) || string.IsNullOrEmpty(req.IdCard))
             {
                 this.ShowError(GameErrorCode.UserOrPwdNull);
@@ -318,7 +324,14 @@ namespace Watermelon
 
             if (ctx.ErrCode != (int)GameErrorCode.Succ)
             {
-                this.ShowError((GameErrorCode)ctx.ErrCode);
+                if (ctx.ErrCode == (int)GameErrorCode.Fail)
+                {
+                    FloatingMessage.ShowMessage("注册请求失败，请检查网络或稍后重试");
+                }
+                else
+                {
+                    this.ShowError((GameErrorCode)ctx.ErrCode);
+                }
                 yield break;
             }
 

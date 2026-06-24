@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
@@ -139,25 +139,41 @@ public class HttpManager : MonoBehaviour
 
             Debug.Log($"[HTTP] Response status: {webRequest.result}, HTTP code: {webRequest.responseCode}");
 
+            string responseText = webRequest.downloadHandler?.text;
+            Debug.Log($"[HTTP] Response content: {responseText}");
+
             if (webRequest.result == UnityWebRequest.Result.Success)
             {
-                string responseText = webRequest.downloadHandler.text;
-                Debug.Log($"[HTTP] Response content: {responseText}");
-                var response = JsonHelper.Deserialize<TResp>(responseText);
-                ctx.Resp = response.data;
-                ctx.ErrCode = response.code;
-                if (response.code != 0)
+                try
                 {
-                    Debug.LogError($"[HTTP] API error: code={response.code}");
+                    var response = JsonHelper.Deserialize<TResp>(responseText);
+                    if (response == null)
+                    {
+                        Debug.LogError($"[HTTP] Empty or invalid API response. URL: {url}");
+                        ctx.ErrCode = -1;
+                        yield break;
+                    }
+
+                    ctx.Resp = response.data;
+                    ctx.ErrCode = response.code;
+                    if (response.code != 0)
+                    {
+                        Debug.LogError($"[HTTP] API error: code={response.code}");
+                    }
+                    else
+                    {
+                        Debug.Log($"[HTTP] Request success, code=0");
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    Debug.Log($"[HTTP] Request success, code=0");
+                    Debug.LogError($"[HTTP] Response parse failed: {e.Message}\n[HTTP] URL: {url}\n[HTTP] Body: {responseText}");
+                    ctx.ErrCode = -1;
                 }
             }
             else
             {
-                Debug.LogError($"[HTTP] Request failed: {webRequest.error}\n[HTTP] URL: {url}\n[HTTP] Result: {webRequest.result}");
+                Debug.LogError($"[HTTP] Request failed: {webRequest.error}\n[HTTP] URL: {url}\n[HTTP] Result: {webRequest.result}\n[HTTP] Code: {webRequest.responseCode}\n[HTTP] Body: {responseText}");
                 ctx.ErrCode = -1;
             }
         }

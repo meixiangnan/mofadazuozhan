@@ -1,18 +1,17 @@
 %YAML 1.1
-%TAG !u! tag:yousandi.cn,2023:
+%TAG !u! tag:unity3d.com,2011:
 --- !u!1 &606466741655419537
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 3790199296996287697}
   - component: {fileID: 545736371732978016}
   - component: {fileID: 6592603826872387284}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: story2Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1bfa6450ffe946546adfa5d550adfa7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5948f6a38fef004cc20f07ea61cdbc06, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -83,7 +82,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 806369969578542041}
   - component: {fileID: 806369969578542047}
@@ -91,7 +90,6 @@ GameObject:
   - component: {fileID: 1261620601603146275}
   - component: {fileID: 2724386412137082784}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Background Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,13 +221,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 3068631755620659565}
   - component: {fileID: 7631712123080438671}
   - component: {fileID: 5265364634831969963}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,13 +296,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 2251649062580947597}
   - component: {fileID: 7967177752604106011}
   - component: {fileID: 7178574259711833916}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: story1Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1bfa6450ffe946546adfa5d550adfa7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5948f6a38fef004cc20f07ea61cdbc06, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -376,13 +372,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 1397689620998034656}
   - component: {fileID: 2585474794099989937}
   - component: {fileID: 5291285193716307840}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,13 +447,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4892557151714971527}
   - component: {fileID: 7419826465499524212}
   - component: {fileID: 3385208786692679579}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,13 +522,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 1803410513003802359}
   - component: {fileID: 6542263655020362102}
   - component: {fileID: 7046889069207057117}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,13 +597,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 7126147583343578339}
   - component: {fileID: 111005731573258601}
   - component: {fileID: 2707089121691637683}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,13 +672,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 2227967184556613640}
   - component: {fileID: 4962590917195534466}
   - component: {fileID: 3821527928691512558}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,12 +747,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4716468772574596328}
   - component: {fileID: 7095820879276776515}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: storyBgPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,14 +794,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 3896966791538023619}
   - component: {fileID: 3896966791538023616}
   - component: {fileID: 3896966791538023622}
   - component: {fileID: 2010784822236656528}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: UI Story
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,6 +845,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -911,13 +901,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4308168882727508929}
   - component: {fileID: 6828231750825435187}
   - component: {fileID: 1832487599795716074}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: story3Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1bfa6450ffe946546adfa5d550adfa7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5948f6a38fef004cc20f07ea61cdbc06, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -988,13 +977,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 3154449038479304408}
   - component: {fileID: 3017591481699613938}
   - component: {fileID: 7709436776597128967}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1064,12 +1052,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 2314479772551544251}
   - component: {fileID: 8949723607890114104}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: storyBgPanel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,13 +1101,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 5136224904085161904}
   - component: {fileID: 3749038340788927199}
   - component: {fileID: 251376609524381993}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Story3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1175,7 +1161,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u539F\u6765\u52C7\u8005\u6839\u672C\u65E0\u9700\u53EC\u5524\uFF0C\u8FD9\u4E2A\u7531\u4F20\u8BF4\u4E2D\u7684\u52C7\u8005\u5EFA\u7ACB\u7684\u738B\u56FD\uFF0C\u5168\u6C11\u7686\u662F\u52C7\u8005\uFF01"
-  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 221128757c061b948a0778a01d54a38a, type: 2}
   m_sharedMaterial: {fileID: -2296387281175062170, guid: 221128757c061b948a0778a01d54a38a, type: 2}
@@ -1213,20 +1198,23 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1250,13 +1238,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 6465681728657908148}
   - component: {fileID: 8246885917467282515}
   - component: {fileID: 4738774357629543782}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,13 +1313,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4996783192432987633}
   - component: {fileID: 3870574120785660285}
   - component: {fileID: 6844635252192197268}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Story2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,7 +1373,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u8001\u56FD\u738B\u4E00\u7B79\u83AB\u5C55\u65F6\u7B49\u6765\u4E86\u597D\u6D88\u606F\uFF0C\u5404\u5730\u6C11\u95F4\u6297\u51FB\u9B54\u65CF\u7684\u52C7\u6562\u8005\u4EEC\u7EB7\u7EB7\u6D8C\u73B0\uFF0C\u4E0A\u81F3\u82F1\u52C7\u7684\u738B\u56FD\u536B\u961F\u519B\u5B98\uFF0C\u4E0B\u81F3\u666E\u901A\u730E\u4EBA\u519C\u592B\uFF0C\u4EBA\u6C11\u594B\u52C7\u8D77\u8EAB\u62EF\u6551\u738B\u56FD\u3002"
-  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 221128757c061b948a0778a01d54a38a, type: 2}
   m_sharedMaterial: {fileID: -2296387281175062170, guid: 221128757c061b948a0778a01d54a38a, type: 2}
@@ -1425,20 +1410,23 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1462,13 +1450,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 1384376195812146058}
   - component: {fileID: 5640252394133571370}
   - component: {fileID: 7647503921136119145}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,12 +1525,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 8360750511576468638}
   - component: {fileID: 335411593515644317}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: storyBgPanel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1584,13 +1570,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 7
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 910489569642104382}
   - component: {fileID: 5061527238288073840}
   - component: {fileID: 6525645862473399183}
   m_Layer: 5
-  m_HasEditorInfo: 1
   m_Name: Story1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1645,7 +1630,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u738B\u56FD\u518D\u6B21\u53D7\u5230\u9B54\u65CF\u5A01\u80C1\uFF0C\u56FD\u738B\u7167\u4F20\u8BF4\u7684\u65B9\u6CD5\u53EC\u5524\u52C7\u8005\u5374\u4E00\u76F4\u6CA1\u80FD\u6210\u529F\u3002"
-  m_enableAdvanceTextProcess: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 221128757c061b948a0778a01d54a38a, type: 2}
   m_sharedMaterial: {fileID: -2296387281175062170, guid: 221128757c061b948a0778a01d54a38a, type: 2}
@@ -1683,20 +1667,23 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

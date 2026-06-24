@@ -6,7 +6,18 @@ namespace Watermelon
     {
         [SerializeField] SpriteRenderer spriteRenderer;
 
-        public void Awake()
+        private void Awake()
+        {
+            if (spriteRenderer == null)
+                spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void Start()
+        {
+            Refresh();
+        }
+
+        public void Refresh()
         {
             Camera camera = Camera.main;
             if (camera == null || spriteRenderer == null || spriteRenderer.sprite == null)

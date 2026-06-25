@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply from: '../shared/keepUnitySymbols.gradle'
 **APPLY_PLUGINS**
 
 dependencies {
@@ -10,6 +11,7 @@ dependencies {
 
 // Android Resolver Exclusions Start
 android {
+    ndkVersion "**NDKVERSION**"
   packaging {
       exclude ('/lib/armeabi/*' + '*')
       exclude ('/lib/mips/*' + '*')
@@ -22,7 +24,7 @@ android {
 android {
     namespace "com.unity3d.player"
     ndkPath "**NDKPATH**"
-    compileSdkVersion **APIVERSION**
+    compileSdkVersion 34
     buildToolsVersion '**BUILDTOOLS**'
 
     compileOptions {
@@ -31,9 +33,11 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion **MINSDKVERSION**
-        targetSdkVersion **TARGETSDKVERSION**
+**DEFAULT_CONFIG_SETUP**
+        minSdk **MINSDK**
+        targetSdk **TARGETSDK**
         ndk {
+            debugSymbolLevel **DEBUGSYMBOLLEVEL**
             abiFilters **ABIFILTERS**
         }
         versionCode **VERSIONCODE**
@@ -41,14 +45,14 @@ android {
         consumerProguardFiles 'proguard-tuanjie.txt'**USER_PROGUARD**
     }
 
-    lintOptions {
+    lint {
         abortOnError false
     }
 
-    aaptOptions {
-        noCompress = **BUILTIN_NOCOMPRESS** + tuanjieStreamingAssets.tokenize(', ')
+    androidResources {
+        noCompress = **BUILTIN_NOCOMPRESS** + unityStreamingAssets.tokenize(', ')
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~"
-    }**PACKAGING_OPTIONS**
+    }**PACKAGING**
 }
 **IL_CPP_BUILD_SETUP**
 **SOURCE_BUILD_SETUP**

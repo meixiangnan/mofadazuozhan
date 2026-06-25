@@ -47,9 +47,9 @@
     <Analyzer Include="D:\tool\unity\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugins\SuperScrollView\Editor\LoopStaggeredGridViewEditor.cs" />
     <Compile Include="Assets\Plugins\SuperScrollView\Editor\LoopGridViewEditor.cs" />
     <Compile Include="Assets\Plugins\SuperScrollView\Editor\LoopListViewEditor2.cs" />
-    <Compile Include="Assets\Plugins\SuperScrollView\Editor\LoopStaggeredGridViewEditor.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:\tool\unity\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -530,9 +530,6 @@
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\PackageCache\com.unity.visualscripting@eb6004dcc707\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
-    <Reference Include="Coffee.UIParticle.R">
-      <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\PackageCache\com.coffee.ui-particle@c54f63cb18a2\Runtime\Coffee.UIParticle.R.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\PackageCache\com.unity.analytics@c9d14a6bdec6\AnalyticsStandardEvents\Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
@@ -997,9 +994,6 @@
     </Reference>
     <Reference Include="UnityEngine.Purchasing.SecurityCore">
       <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\ScriptAssemblies\UnityEngine.Purchasing.SecurityCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Coffee.UIParticle">
-      <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\ScriptAssemblies\Coffee.UIParticle.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>

@@ -49,112 +49,112 @@
   <ItemGroup>
     <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\IAP Module\Scripts\Editor\IAPSettingsEditor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Currencies Module\Scripts\Editor\CurrenciesControllerEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Unique ID\Editor\UniqueIDPropertyDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Setup Guide\Editor\SetupGuideWindow.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Save Module\Editor\SaveActionsMenu.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\WatermelonEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\Settings Panel\Scripts\Editor\SettingsPanelEditor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\Scripts\Providers\AdMob\Editor\AdmobBuildHandler.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyGroupers\PropertyGrouper.cs" />
-    <Compile Include="Assets\Project Data\Game\Scripts\Level\Editor\EditorSceneController.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Utility\EditorDrawUtility.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\Level\Editor\EditorSceneController.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\Asset Smart Importer\AudioSmartImporter.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Setup Guide\Editor\SetupGuideInfo.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Source\SkAdNetworkLocalSourceProvider.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Smart Selector\Editor\SmartSelector.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Source\SkAdNetworkLocalSource.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefinesPostprocessor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Utility\EditorStylesUtils.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Custom List\Editor\Fields.cs" />
+    <Compile Include="Assets\Project Data\Game\Scripts\Editor\CustomActionsMenu.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Parser\SkAdNetworkJsonParser.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\Scripts\Editor\AdsSettingsEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\Asset Smart Importer\TextureSmartImporterPresets.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Pool Manager\Editor\PoolManagerEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\EditorGUILayoutCustom.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Parser\SkAdNetworkFileExtension.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Scene Saving Handler\Editor\SceneSavingHandler.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Initialiser\Scripts\Editor\InitModuleEditor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Audio Controller\Editor\AudioSettingsEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\SliderPropertyDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Level System\Editor\LevelsHandler.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\MinMaxSliderPropertyDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyMetas\OnValueChangedPropertyMeta.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Source\SkAdNetworkRemoteSource.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Utility\IOUtility.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyGroupers\BoxGroupPropertyGrouper.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\GameSettingsPrefs\Editor\PrefsSettingsEditor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\ResizableTextAreaPropertyDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\TextureExporter\TextureExporter.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\Asset Smart Importer\TextureSmartImporter.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Setup Guide\Editor\SetupButton.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\DrawReferenceDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Parser\SkAdNetworkXmlParser.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\UI Manager\Editor\UIControllerEditor.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\DuoTypesPropertyDrawer.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\Particle System\Editor\ParticlesControllerEditor.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Parser\ISkAdNetworkParser.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\ReorderableListPropertyDrawer.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Core Organizer\Editor\CoreOrganizerEditor.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\ToggleTypesPropertyDrawer.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Loading System\Editor\SceneLoadingActionsMenu.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Level System\Editor\WindowConfiguration.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\PostProcessBuildPlist.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Unique ID\Editor\UniqueIDHandler.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Setup Guide\Editor\SetupGuideInfoEditor.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawConditions\HideIfPropertyDrawCondition.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\ReadOnlyFieldPropertyDrawer.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefinesWindow.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Custom List\Editor\Style\ListStylesDatabase.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Custom List\Editor\Style\CustomListStyle.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\RegisteredDefine.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\EditorCoroutines.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Utility\PropertyUtility.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\FieldDrawers\ShowNonSerializedFieldFieldDrawer.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\AssemblyInfo.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\CustomAttributesDatabase.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\AssetRenamer\AssetRenamer.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Setup Guide\Editor\OnlineDocumentation.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefineState.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Unique ID\Editor\UniqueIDPropertyDrawer.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Setup Guide\Editor\SetupGuideWindow.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\Settings Panel\Scripts\Editor\SettingsPanelEditor.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\Asset Smart Importer\AudioSmartImporter.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Source\SkAdNetworkLocalSourceProvider.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Source\SkAdNetworkLocalSource.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefinesPostprocessor.cs" />
-    <Compile Include="Assets\Project Data\Game\Scripts\Editor\CustomActionsMenu.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Parser\SkAdNetworkJsonParser.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\Asset Smart Importer\TextureSmartImporterPresets.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Pool Manager\Editor\PoolManagerEditor.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\EditorGUILayoutCustom.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Scene Saving Handler\Editor\SceneSavingHandler.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\SliderPropertyDrawer.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Level System\Editor\LevelsHandler.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyMetas\OnValueChangedPropertyMeta.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Utility\IOUtility.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Modules\GameSettingsPrefs\Editor\PrefsSettingsEditor.cs" />
-    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\TextureExporter\TextureExporter.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Custom List\Editor\CustomList.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Currencies Module\Scripts\Editor\CurrencyPricePropertyDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawConditions\ShowIfPropertyDrawCondition.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\UI Manager\Editor\UIControllerEditor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\EditorExtensions.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\DuoTypesPropertyDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extra Components\Particle System\Editor\ParticlesControllerEditor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Initialiser\Scripts\Editor\ProjectInitSettingsEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Parser\ISkAdNetworkParser.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Level\Editor\CellTypesHandler.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\ReorderableListPropertyDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyMetas\InfoBoxPropertyMeta.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Support Log Generator\Editor\SupportLogGenerator.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawConditions\PropertyDrawCondition.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Core Organizer\Editor\CoreOrganizerEditor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\EditorCustomStylesData.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Parser\SkAdNetworkParser.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\IOSBuildPostProcessor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\TogglePropertyDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\ToggleTypesPropertyDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Level System\Editor\LevelEditorBase.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Tween\Editor\TweenEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Loading System\Editor\SceneLoadingActionsMenu.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\EnumFlagsAttributeDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\MethodDrawers\ButtonMethodDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\DecoratorDrawer\LineSpacerDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Manifest Generator\Editor\ManifestGenerator.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Level System\Editor\WindowConfiguration.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\EditorCustomStyles.cs" />
     <Compile Include="Assets\Project Data\Game\Scripts\Level\Editor\LevelEditorWindow.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\Scripts\Editor\AdsPostBuild.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Save Module\Editor\SavePresetsWindow.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\PostProcessBuildPlist.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Unique ID\Editor\UniqueIDHandler.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\PropertyDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Setup Guide\Editor\SetupGuideInfoEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawConditions\HideIfPropertyDrawCondition.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Loading System\Editor\GameLoadingEditor.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyDrawers\ReadOnlyFieldPropertyDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Currencies Module\Scripts\Editor\MD_CurrencyActionsMenu.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefinesWindow.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\EditorUtils.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefinesSettings.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Custom List\Editor\Style\ListStylesDatabase.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Custom List\Editor\Style\CustomListStyle.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\EditorHelpMenus.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\RegisteredDefine.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\FieldDrawers\FieldDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\EditorCoroutines.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Utility\PropertyUtility.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\FieldDrawers\ShowNonSerializedFieldFieldDrawer.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\AssemblyInfo.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\MethodDrawers\MethodDrawer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Parser\SkAdNetworkUrlParser.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\CustomAttributesDatabase.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Modules\Assets Manager\Editor\AssetRenamer\AssetRenamer.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\EditorColor.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefinesString.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Scripts\Utils\Editor\TMPUtils.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Setup Guide\Editor\OnlineDocumentation.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Level System\Editor\TabHandler.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefineManager.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Modules\Advertisement\IDFA\Editor\Source\ISkAdNetworkSource.cs" />
     <Compile Include="Assets\Project Data\Watermelon Core\Extended Editor\Editor\Drawers\PropertyMetas\PropertyMeta.cs" />
+    <Compile Include="Assets\Project Data\Watermelon Core\Modules\Define Manager\Editor\DefineState.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:\tool\unity\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -635,9 +635,6 @@
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\PackageCache\com.unity.visualscripting@eb6004dcc707\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
-    <Reference Include="Coffee.UIParticle.R">
-      <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\PackageCache\com.coffee.ui-particle@c54f63cb18a2\Runtime\Coffee.UIParticle.R.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\PackageCache\com.unity.analytics@c9d14a6bdec6\AnalyticsStandardEvents\Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
@@ -1102,9 +1099,6 @@
     </Reference>
     <Reference Include="UnityEngine.Purchasing.SecurityCore">
       <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\ScriptAssemblies\UnityEngine.Purchasing.SecurityCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Coffee.UIParticle">
-      <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\ScriptAssemblies\Coffee.UIParticle.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:\Project\Unity\mofadazuozhan_client\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>

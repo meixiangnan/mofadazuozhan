@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Watermelon;
 using Watermelon.GameModule;
@@ -26,11 +27,15 @@ public class RoleModule : GameModuleBase
     public int PassLevel;
     public int Age;
     public int CanPlaySeconds = 0;
+    private int serverLeftSeconds = 0;
     public int ItemNum_Undo = 0;
     public int ItemNum_Shuffle = 0;
     public int ItemNum_Hint = 0;
     public int ItemNum_ExtraSlot = 0;
     public int ItemNum_AddTime = 0;
+    public string UnlockedHeroes = "";
+
+    private readonly HashSet<int> unlockedHeroIds = new();
 
 
     
@@ -41,8 +46,6 @@ public class RoleModule : GameModuleBase
     private bool isNeedShowAdultNotify = false;
     private bool isShowAdultNotify = false;
 
-    private const int AntiAddictionStartHour = 20;
-    private const int AntiAddictionEndHour = 21;
     private const double AntiAddictionLeftNotifySeconds = 15 * 60;
 
 
@@ -58,6 +61,7 @@ public class RoleModule : GameModuleBase
     public void RecordLogin()
     {
         isLogin = true;
+        CanPlaySeconds = serverLeftSeconds;
         LoginTick = DateTime.Now;
     }
 
@@ -102,26 +106,78 @@ public class RoleModule : GameModuleBase
 
     public void SavePowerUpsLocal()
     {
-        PlayerPrefs.SetInt("PU_Undo", ItemNum_Undo);
-        PlayerPrefs.SetInt("PU_Shuffle", ItemNum_Shuffle);
-        PlayerPrefs.SetInt("PU_Hint", ItemNum_Hint);
-        PlayerPrefs.SetInt("PU_ExtraSlot", ItemNum_ExtraSlot);
-        PlayerPrefs.SetInt("PU_AddTime", ItemNum_AddTime);
-        PlayerPrefs.Save();
+        GameGlobal.Instance?.UploadRoleData();
     }
 
     public void LoadPowerUpsLocal()
     {
-        if (!PlayerPrefs.HasKey("PU_Undo"))
+    }
+
+    public void SetServerExtraData(int diamondCount, string monthlyRechargeMonth, int monthlyRechargeAmount, string unlockedHeroes)
+    {
+        GameGlobal.Instance.GetModule<DiamondModule>()?.SetServerData(diamondCount, monthlyRechargeMonth, monthlyRechargeAmount);
+        SetUnlockedHeroes(unlockedHeroes);
+    }
+
+    public bool IsHeroUnlocked(int heroId, bool defaultUnlocked)
+    {
+        return defaultUnlocked || unlockedHeroIds.Contains(heroId);
+    }
+
+    public void UnlockHero(int heroId)
+    {
+        if (heroId <= 0 || !unlockedHeroIds.Add(heroId))
         {
             return;
         }
 
-        ItemNum_Undo = PlayerPrefs.GetInt("PU_Undo", 0);
-        ItemNum_Shuffle = PlayerPrefs.GetInt("PU_Shuffle", 0);
-        ItemNum_Hint = PlayerPrefs.GetInt("PU_Hint", 0);
-        ItemNum_ExtraSlot = PlayerPrefs.GetInt("PU_ExtraSlot", 0);
-        ItemNum_AddTime = PlayerPrefs.GetInt("PU_AddTime", 0);
+        RefreshUnlockedHeroesString();
+        GameGlobal.Instance?.UploadRoleData();
+    }
+
+    public void SetUnlockedHeroes(string unlockedHeroes)
+    {
+        unlockedHeroIds.Clear();
+        UnlockedHeroes = unlockedHeroes ?? "";
+        if (!string.IsNullOrEmpty(UnlockedHeroes))
+        {
+            string[] ids = UnlockedHeroes.Split(',');
+            foreach (string id in ids)
+            {
+                if (int.TryParse(id, out int heroId) && heroId > 0)
+                {
+                    unlockedHeroIds.Add(heroId);
+                }
+            }
+        }
+
+        RefreshUnlockedHeroesString();
+    }
+
+    private void RefreshUnlockedHeroesString()
+    {
+        List<int> ids = new List<int>(unlockedHeroIds);
+        ids.Sort();
+        UnlockedHeroes = string.Join(",", ids);
+    }
+
+    public void UnlockHeroesByCompletedLevel(int completedLevel)
+    {
+        int unlockedHeroCount = completedLevel / GameLevelConfig.HeroUnlockInterval;
+        for (int heroId = 1; heroId <= unlockedHeroCount; heroId++)
+        {
+            unlockedHeroIds.Add(heroId);
+        }
+
+        RefreshUnlockedHeroesString();
+        GameGlobal.Instance?.UploadRoleData();
+    }
+
+    public void ClearUnlockedHeroes()
+    {
+        unlockedHeroIds.Clear();
+        RefreshUnlockedHeroesString();
+        GameGlobal.Instance?.UploadRoleData();
     }
 
     public void OnFinishTutorial()
@@ -154,6 +210,7 @@ public class RoleModule : GameModuleBase
         ItemNum_ExtraSlot = resp.ItemNum_ExtraSlot;
         ItemNum_AddTime   = resp.ItemNum_AddTime;
         LoadPowerUpsLocal();
+        SetServerExtraData(resp.DiamondCount ?? 0, resp.MonthlyRechargeMonth, resp.MonthlyRechargeAmount ?? 0, resp.UnlockedHeroes);
         
         InitAge(resp.BirthYear);
     }
@@ -205,7 +262,8 @@ public class RoleModule : GameModuleBase
         ItemNum_ExtraSlot = resp.ItemNum_ExtraSlot;
         ItemNum_AddTime   = resp.ItemNum_AddTime;
         LoadPowerUpsLocal();
-        CanPlaySeconds       = resp.LeftSeconds;
+        SetServerExtraData(resp.DiamondCount ?? 0, resp.MonthlyRechargeMonth, resp.MonthlyRechargeAmount ?? 0, resp.UnlockedHeroes);
+        serverLeftSeconds    = resp.LeftSeconds;
 
         InitAge(resp.BirthYear);
 
@@ -256,7 +314,8 @@ public class RoleModule : GameModuleBase
         ItemNum_ExtraSlot = resp.ItemNum_ExtraSlot;
         ItemNum_AddTime   = resp.ItemNum_AddTime;
         LoadPowerUpsLocal();
-        CanPlaySeconds       = resp.LeftSeconds;
+        SetServerExtraData(resp.DiamondCount ?? 0, resp.MonthlyRechargeMonth, resp.MonthlyRechargeAmount ?? 0, resp.UnlockedHeroes);
+        serverLeftSeconds    = resp.LeftSeconds;
         
         InitAge(resp.BirthYear);
     }
@@ -397,18 +456,13 @@ public class RoleModule : GameModuleBase
 
     private double GetAntiAddictionLeftSeconds()
     {
-        DateTime now = DateTime.Now;
-        DateTime playEndTime = now.Date.AddHours(AntiAddictionEndHour);
-        double timeWindowLeft = (playEndTime - now).TotalSeconds;
-
-        if (CanPlaySeconds > 0)
+        if (CanPlaySeconds <= 0)
         {
-            TimeSpan passTime = now - LoginTick;
-            double serverQuotaLeft = CanPlaySeconds - passTime.TotalSeconds;
-            return Math.Min(serverQuotaLeft, timeWindowLeft);
+            return 0;
         }
 
-        return timeWindowLeft;
+        TimeSpan passTime = DateTime.Now - LoginTick;
+        return CanPlaySeconds - passTime.TotalSeconds;
     }
 
     public bool IsMinorPlayableTimeNow()
@@ -418,9 +472,6 @@ public class RoleModule : GameModuleBase
             return true;
         }
 
-        DateTime now = DateTime.Now;
-        bool isPlayableHour = now.Hour >= AntiAddictionStartHour && now.Hour < AntiAddictionEndHour;
-        bool hasServerQuota = CanPlaySeconds > 0;
-        return isPlayableHour && hasServerQuota;
+        return serverLeftSeconds > 0;
     }
 }

@@ -91,7 +91,8 @@ namespace Watermelon
 
         private bool IsHeroUnlocked(int heroId, bool defaultUnlocked)
         {
-            return PlayerPrefs.GetInt(GetHeroUnlockKey(heroId), defaultUnlocked ? 1 : 0) == 1;
+            RoleModule roleModule = GameGlobal.Instance.GetModule<RoleModule>();
+            return roleModule != null && roleModule.IsHeroUnlocked(heroId, defaultUnlocked);
         }
 
         public static string GetHeroUnlockKey(int heroId)

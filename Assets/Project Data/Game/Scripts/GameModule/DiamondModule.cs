@@ -6,12 +6,10 @@ namespace Watermelon
 {
     public class DiamondModule : GameModuleBase
     {
-        private const string DIAMOND_KEY = "PlayerDiamond";
-        private const string MONTHLY_RECHARGE_MONTH_KEY = "MonthlyRechargeMonth";
-        private const string MONTHLY_RECHARGE_AMOUNT_KEY = "MonthlyRechargeAmount";
-        
         private int diamondCount;
+        private string monthlyRechargeMonth = "";
         private int monthlyRechargeAmount;
+
         public int DiamondCount => diamondCount;
         public int MonthlyRechargeAmount
         {
@@ -32,38 +30,51 @@ namespace Watermelon
 
         private void LoadDiamond()
         {
-            diamondCount = PlayerPrefs.GetInt(DIAMOND_KEY, 0);
-            RefreshRechargeMonth();
+            diamondCount = 0;
+            RefreshRechargeMonth(false);
         }
 
-        private void RefreshRechargeMonth()
+        public void SetServerData(int serverDiamondCount, string serverMonthlyRechargeMonth, int serverMonthlyRechargeAmount)
+        {
+            diamondCount = Math.Max(0, serverDiamondCount);
+            monthlyRechargeMonth = serverMonthlyRechargeMonth ?? "";
+            monthlyRechargeAmount = Math.Max(0, serverMonthlyRechargeAmount);
+            RefreshRechargeMonth(false);
+            OnDiamondChanged?.Invoke();
+        }
+
+        public string GetMonthlyRechargeMonth()
+        {
+            RefreshRechargeMonth(false);
+            return monthlyRechargeMonth;
+        }
+
+        private void RefreshRechargeMonth(bool upload = true)
         {
             string currentMonth = DateTime.Now.ToString("yyyyMM");
-            string savedMonth = PlayerPrefs.GetString(MONTHLY_RECHARGE_MONTH_KEY, "");
-            if (savedMonth != currentMonth)
+            if (monthlyRechargeMonth == currentMonth)
             {
-                monthlyRechargeAmount = 0;
-                PlayerPrefs.SetString(MONTHLY_RECHARGE_MONTH_KEY, currentMonth);
-                PlayerPrefs.SetInt(MONTHLY_RECHARGE_AMOUNT_KEY, monthlyRechargeAmount);
-                PlayerPrefs.Save();
                 return;
             }
 
-            monthlyRechargeAmount = PlayerPrefs.GetInt(MONTHLY_RECHARGE_AMOUNT_KEY, 0);
+            monthlyRechargeMonth = currentMonth;
+            monthlyRechargeAmount = 0;
+            if (upload)
+            {
+                GameGlobal.Instance?.UploadRoleData();
+            }
         }
 
         public void RecordRecharge(int yuanAmount)
         {
-            RefreshRechargeMonth();
+            RefreshRechargeMonth(false);
             monthlyRechargeAmount += yuanAmount;
-            PlayerPrefs.SetInt(MONTHLY_RECHARGE_AMOUNT_KEY, monthlyRechargeAmount);
-            PlayerPrefs.Save();
+            GameGlobal.Instance?.UploadRoleData();
         }
 
         private void SaveDiamond()
         {
-            PlayerPrefs.SetInt(DIAMOND_KEY, diamondCount);
-            PlayerPrefs.Save();
+            GameGlobal.Instance?.UploadRoleData();
         }
 
         public void AddDiamond(int amount)

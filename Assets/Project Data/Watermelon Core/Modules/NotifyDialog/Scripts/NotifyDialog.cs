@@ -51,6 +51,17 @@ namespace Watermelon
             sDialog.gameObject.SetActive(true);
         }
 
+        public static void CloseActive()
+        {
+            if (sDialog == null)
+            {
+                return;
+            }
+
+            sDialog.onClose = null;
+            sDialog.gameObject.SetActive(false);
+        }
+
         private void SetState(DialogState state)
         {
             closeBtn.onClick.RemoveAllListeners();

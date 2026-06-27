@@ -46,7 +46,7 @@ namespace Watermelon.Message
         public MessageRsp Resp;
         
         public int ErrCode = 0;
-
+        public int ErrAge  = -1;
     }
     
     public class ServerHelper

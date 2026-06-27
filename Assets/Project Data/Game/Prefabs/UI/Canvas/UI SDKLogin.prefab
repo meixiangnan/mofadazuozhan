@@ -190,7 +190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8555601540417500893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2664,7 +2664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -196}
+  m_AnchoredPosition: {x: 0, y: -346.2}
   m_SizeDelta: {x: 646, y: 302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3391167860827649100
@@ -3827,7 +3827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7532974507592050754
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3870,7 +3870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4704,7 +4704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 537.2}
+  m_AnchoredPosition: {x: 0, y: 348.7}
   m_SizeDelta: {x: 370, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4403624618911457793
@@ -5112,7 +5112,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u672A\u6210\u5E74\u9632\u6C89\u8FF7\u653F\u7B56\u8BF4\u660E"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 221128757c061b948a0778a01d54a38a, type: 2}
   m_sharedMaterial: {fileID: -2296387281175062170, guid: 221128757c061b948a0778a01d54a38a, type: 2}
@@ -6434,7 +6434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 160.8}
+  m_AnchoredPosition: {x: 0, y: -18.1}
   m_SizeDelta: {x: 554, y: 736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6810344079152099873
@@ -6691,7 +6691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8012380350704890074
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8335,8 +8335,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aa460ccf2db7496419338439691b5aa4, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 014a98b484ba7054b9bf5f8df9e650f8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 1
@@ -8737,10 +8737,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 988043347748136288, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -18.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075447210390689299, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
+      propertyPath: m_Spacing
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 1094618116057611444, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c5a4a50fbcc4a85419c5d4ccf10b5de2, type: 3}
+    - target: {fileID: 1736640367417065120, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -515.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3393657999938615670, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -8861,9 +8873,17 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d72504f39e55f264aabcccc26ade329c, type: 3}
+    - target: {fileID: 7138235894488396154, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -345.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7448006633845452529, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664521133842730835, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7784066054380388912, guid: cfeb3569aa12cb147b7dd3b0c98857cd, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'

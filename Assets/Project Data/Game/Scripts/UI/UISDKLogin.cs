@@ -143,12 +143,6 @@ namespace Watermelon
         private void ToGameDispatch()
         {
             this.SetState(UILoginState.GameDispatch);
-
-            var mdl = GetModule<RoleModule>();
-            if (mdl.IsNeedShowUnAdult())
-            {
-                mdl.ShowAdultNotify();
-            }
         }
 
 
@@ -239,7 +233,7 @@ namespace Watermelon
         private void AgeNotifies()
         {
             var content =
-                "1）本游戏是一款移动端游戏，适用于年满 8周岁及以上的用户，建议未成年人在家长监护下使用游戏产品。\n\n2）本游戏以魔法师保护王国为故事背景，是一款消除类休闲益智游戏，有策略三消和闯关的内容，这部分内容不会与现实生活相混淆。游戏玩法基于传统的三消休闲益智与魔法故事主题相结合，配以快速过关的独特设计，让玩家体验轻松、休闲的游戏乐趣。游戏中没有基于文字或语音的陌生人社交系统。\n\n3）游戏中有用户实名认证系统，未实名账号不能登录游戏。认证为未成年人的用户将接受以下管理：\n未成年人用户可在周五、周六、周日和法定节假日每日晚20时至21时登录游戏，其他时间无法登录游戏。游戏中不包含充值和道具付费系统，玩家通过观看广告，获得有利于推进游戏进度的道具。\n\n4） 本游戏将三消益智与策略过关相融合，通过易于上手而又具有一定策略性的创新玩法设计，培养玩家运用局内策略灵活选择、变更获胜策略的能力，适合想要在轻松的游戏娱乐过程中体验新鲜感和策略技巧的玩家。";
+                "1）本游戏为一款移动端游戏产品，适用于年满8周岁及以上的用户，建议未成年人在家长监护下使用本游戏产品。\n\n2）本游戏以魔法师保护王国为故事背景，是一款消除类休闲益智游戏，有策略三消和闯关的内容，这部分内容不会与现实生活相混淆。游戏玩法基于传统的三消休闲益智与魔法故事主题相结合，配以快速过关的独特设计，让玩家体验轻松、休闲的游戏乐趣。游戏中没有基于文字或语音的陌生人社交系统。\n\n3）根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》和《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，本游戏设有用户实名认证系统，未完成实名认证的账号无法登录游戏。认证为未成年人的用户将接受以下管理：未成年用户可在周五、周六、周日及法定节假日的20:00至21:00登录游戏，其他时间无法进入游戏。游戏中部分玩法和道具涉及付费。未满8周岁的用户无法进行付费；8周岁以上未满16周岁的未成年用户，单次充值金额不得超过50元人民币，每月累计充值金额不得超过200元人民币；16周岁以上的未成年用户，单次充值金额不得超过100元人民币，每月累计充值金额不得超过400元人民币。\n\n4） 本游戏将三消益智与策略过关相融合，通过易于上手而又具有一定策略性的创新玩法设计，培养玩家运用局内策略灵活选择、变更获胜策略的能力，适合想要在轻松的游戏娱乐过程中体验新鲜感和策略技巧的玩家。";
             
             this.ShowMessage("提示", content);
         }
@@ -338,7 +332,15 @@ namespace Watermelon
             RoleModule roleModule = GetModule<RoleModule>();
             roleModule.OnRegSucc(ctx.Resp as MsgCreateRsp);
 
-            this.SetState(UILoginState.CreateRole);
+            if (roleModule.IsAdult())
+            {
+                this.SetState(UILoginState.CreateRole);
+            }
+            else
+            {
+                FloatingMessage.ShowMessage("注册成功，请使用账号登录");
+                this.SetState(UILoginState.Login);
+            }
         }
        
         private IEnumerator CreateRoleTask(string head, string nick)
@@ -363,7 +365,15 @@ namespace Watermelon
 
             RoleModule roleModule = GetModule<RoleModule>();
             roleModule.OnCreateRoleSucc(req);
-            HandleLoginCompletedByAntiAddiction();
+
+            if (curState == UILoginState.ChangeName)
+            {
+                ToGameDispatch();
+            }
+            else
+            {
+                HandleLoginCompletedByAntiAddiction();
+            }
         }
 
 
@@ -431,19 +441,20 @@ namespace Watermelon
             yield return ServerHelper.RequestServer<MsgQuickLoginRsp>(ctx);
             if (ctx.ErrCode != (int)GameErrorCode.Succ)
             {
-                this.ShowError((GameErrorCode)ctx.ErrCode);
+                if (ctx.ErrCode == (int)GameErrorCode.AgeCannotLoginNow || ctx.ErrCode == (int)GameErrorCode.AgeDayDuringMoreThanOneHour)
+                {
+                    ShowMessage("防沉迷提示", GetAntiAddictionLoginContent(ctx.ErrAge, false), () => { StartLogin(); });
+                }
+                else
+                {
+                    this.ShowError((GameErrorCode)ctx.ErrCode);
+                }
                 this.SetState(UILoginState.Login);
                 yield break;
             }
             
             roleMdl.OnQuickLoginSucc(ctx.Resp as MsgQuickLoginRsp);
 
-            if (string.IsNullOrEmpty(roleMdl.userData.HeadIcon) || roleMdl.userData.Nickname.Length < 5 )
-            {
-                this.SetState(UILoginState.CreateRole);
-                yield break;
-            }
-            
             HandleLoginCompletedByAntiAddiction();
         }
 
@@ -467,18 +478,19 @@ namespace Watermelon
             yield return ServerHelper.RequestServer<MsgLoginRsp>(ctx);
             if (ctx.ErrCode != (int)GameErrorCode.Succ)
             {
-                this.ShowError((GameErrorCode)ctx.ErrCode);
+                if (ctx.ErrCode == (int)GameErrorCode.AgeCannotLoginNow || ctx.ErrCode == (int)GameErrorCode.AgeDayDuringMoreThanOneHour)
+                {
+                    ShowMessage("防沉迷提示", GetAntiAddictionLoginContent(ctx.ErrAge, false), () => { StartLogin(); });
+                }
+                else
+                {
+                    this.ShowError((GameErrorCode)ctx.ErrCode);
+                }
                 yield break;
             }
 
             RoleModule roleModule = GetModule<RoleModule>();
             roleModule.OnLoginSucc(ctx.Resp as MsgLoginRsp);
-
-            if (string.IsNullOrEmpty(roleModule.userData.Nickname) || roleModule.userData.Nickname.Length < 5 )
-            {
-                this.SetState(UILoginState.CreateRole);
-                yield break;
-            }
 
             HandleLoginCompletedByAntiAddiction();
         }
@@ -489,12 +501,20 @@ namespace Watermelon
             if (roleModule.IsAdult())
             {
                 roleModule.RecordLogin();
-                ToGameDispatch();
+                if (string.IsNullOrEmpty(roleModule.userData.Nickname) || roleModule.userData.Nickname.Length < 5)
+                {
+                    this.SetState(UILoginState.CreateRole);
+                }
+                else
+                {
+                    ToGameDispatch();
+                }
                 return;
             }
 
             bool canPlayNow = roleModule.IsMinorPlayableTimeNow();
             string content = GetAntiAddictionLoginContent(roleModule.Age, canPlayNow);
+            NotifyDialog.CloseActive();
             if (!canPlayNow)
             {
                 ShowMessage("防沉迷提示", content, () =>
@@ -507,7 +527,14 @@ namespace Watermelon
             ShowMessage("防沉迷提示", content, () =>
             {
                 roleModule.RecordLogin();
-                ToGameDispatch();
+                if (string.IsNullOrEmpty(roleModule.userData.Nickname) || roleModule.userData.Nickname.Length < 5)
+                {
+                    this.SetState(UILoginState.CreateRole);
+                }
+                else
+                {
+                    ToGameDispatch();
+                }
             });
         }
 

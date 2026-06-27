@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
@@ -156,6 +156,7 @@ public class HttpManager : MonoBehaviour
 
                     ctx.Resp = response.data;
                     ctx.ErrCode = response.code;
+                    ctx.ErrAge  = response.age;
                     if (response.code != 0)
                     {
                         Debug.LogError($"[HTTP] API error: code={response.code}");

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace Watermelon.Message
@@ -11,6 +11,7 @@ namespace Watermelon.Message
     {
         [JsonProperty("code")] public int code;
         [JsonProperty("data")] public T data;
+        [JsonProperty("Age")]  public int age;
     }
 
     //定义请求基类
@@ -61,6 +62,14 @@ namespace Watermelon.Message
         public int ItemNum_ExtraSlot;
         [JsonProperty("ItemNum_AddTime")] 
         public int ItemNum_AddTime;
+        [JsonProperty("DiamondCount")]
+        public int? DiamondCount;
+        [JsonProperty("MonthlyRechargeMonth")]
+        public string MonthlyRechargeMonth;
+        [JsonProperty("MonthlyRechargeAmount")]
+        public int? MonthlyRechargeAmount;
+        [JsonProperty("UnlockedHeroes")]
+        public string UnlockedHeroes;
     }
     
 
@@ -96,6 +105,14 @@ namespace Watermelon.Message
         public int ItemNum_ExtraSlot;
         [JsonProperty("ItemNum_AddTime")] 
         public int ItemNum_AddTime;
+        [JsonProperty("DiamondCount")]
+        public int? DiamondCount;
+        [JsonProperty("MonthlyRechargeMonth")]
+        public string MonthlyRechargeMonth;
+        [JsonProperty("MonthlyRechargeAmount")]
+        public int? MonthlyRechargeAmount;
+        [JsonProperty("UnlockedHeroes")]
+        public string UnlockedHeroes;
     }
 
     public class MsgCreateReq : MessageReq
@@ -131,6 +148,14 @@ namespace Watermelon.Message
         public int ItemNum_ExtraSlot;
         [JsonProperty("ItemNum_AddTime")] 
         public int ItemNum_AddTime;
+        [JsonProperty("DiamondCount")]
+        public int? DiamondCount;
+        [JsonProperty("MonthlyRechargeMonth")]
+        public string MonthlyRechargeMonth;
+        [JsonProperty("MonthlyRechargeAmount")]
+        public int? MonthlyRechargeAmount;
+        [JsonProperty("UnlockedHeroes")]
+        public string UnlockedHeroes;
     }
 
     
@@ -179,6 +204,10 @@ namespace Watermelon.Message
         public int ItemNum_Hint;
         public int ItemNum_ExtraSlot;
         public int ItemNum_AddTime;
+        public int DiamondCount;
+        public string MonthlyRechargeMonth;
+        public int MonthlyRechargeAmount;
+        public string UnlockedHeroes;
     }
 
     public class MsgUploadLeaderBoardRsp : MessageRsp

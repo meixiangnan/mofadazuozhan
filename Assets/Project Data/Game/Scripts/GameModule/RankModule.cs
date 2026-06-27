@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Watermelon;
 using Watermelon.GameModule;
 using Watermelon.Message;
 
@@ -21,6 +22,12 @@ public class RankModule : GameModuleBase
         req.ItemNum_Hint      = roleMdl.ItemNum_Hint;
         req.ItemNum_ExtraSlot = roleMdl.ItemNum_ExtraSlot;
         req.ItemNum_AddTime   = roleMdl.ItemNum_AddTime;
+
+        var diamondMdl = GetModule<DiamondModule>();
+        req.DiamondCount = diamondMdl.DiamondCount;
+        req.MonthlyRechargeMonth = diamondMdl.GetMonthlyRechargeMonth();
+        req.MonthlyRechargeAmount = diamondMdl.MonthlyRechargeAmount;
+        req.UnlockedHeroes = roleMdl.UnlockedHeroes;
         
         RequestContext rc = new RequestContext();
         rc.Req = req;

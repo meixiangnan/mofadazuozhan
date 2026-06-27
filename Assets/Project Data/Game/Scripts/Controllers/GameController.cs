@@ -182,14 +182,13 @@ namespace Watermelon
             }
 
             int heroId = completedLevelNumber / GameLevelConfig.HeroUnlockInterval;
-            string unlockKey = UIHeroBook.GetHeroUnlockKey(heroId);
-            if (PlayerPrefs.GetInt(unlockKey, 0) == 1)
+            var roleMdl = GameGlobal.Instance.GetModule<RoleModule>();
+            if (roleMdl == null || roleMdl.IsHeroUnlocked(heroId, false))
             {
                 return -1;
             }
 
-            PlayerPrefs.SetInt(unlockKey, 1);
-            PlayerPrefs.Save();
+            roleMdl.UnlockHero(heroId);
             return heroId;
         }
 

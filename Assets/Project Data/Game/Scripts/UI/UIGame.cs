@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -251,13 +251,7 @@ namespace Watermelon
 
             var roleModule = GameGlobal.Instance.GetModule<RoleModule>();
             roleModule.PassLevel = nextLevel;
-
-            int unlockedHeroCount = level / GameLevelConfig.HeroUnlockInterval;
-            for (int heroId = 1; heroId <= unlockedHeroCount; heroId++)
-            {
-                PlayerPrefs.SetInt(UIHeroBook.GetHeroUnlockKey(heroId), 1);
-            }
-            PlayerPrefs.Save();
+            roleModule.UnlockHeroesByCompletedLevel(level);
 
             SaveController.Save(true);
             StartCoroutine(GameGlobal.Instance.GetModule<RankModule>().UploadRoleData());
@@ -275,13 +269,8 @@ namespace Watermelon
 
             var roleModule = GameGlobal.Instance.GetModule<RoleModule>();
             roleModule.PassLevel = 1;
+            roleModule.ClearUnlockedHeroes();
 
-            for (int heroId = 1; heroId <= GameLevelConfig.ChapterCount; heroId++)
-            {
-                PlayerPrefs.DeleteKey(UIHeroBook.GetHeroUnlockKey(heroId));
-            }
-
-            PlayerPrefs.Save();
             SaveController.Save(true);
             FloatingMessage.ShowMessage("进度已重置到第1关");
         }

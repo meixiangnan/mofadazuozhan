@@ -1,12 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Watermelon.GameModule;
 
 namespace Watermelon
 {
-    
     public class GameGlobal : MonoBehaviour
     {
         public static GameGlobal Instance;
@@ -33,20 +30,30 @@ namespace Watermelon
         }
 
         private bool isUpload = false;
+        private bool pendingUpload = false;
+
         public void UploadRoleData()
         {
             if (isUpload)
             {
+                pendingUpload = true;
                 return;
             }
 
             isUpload = true;
-            var mdl = GetModule<RankModule>();
-            StartCoroutine(OnlyOneTask(mdl.UploadRoleData()));
+            StartCoroutine(UploadRoleDataTask());
         }
-        public IEnumerator OnlyOneTask(IEnumerator co)
+
+        private IEnumerator UploadRoleDataTask()
         {
-            yield return co;
+            do
+            {
+                pendingUpload = false;
+                var mdl = GetModule<RankModule>();
+                yield return mdl.UploadRoleData();
+            }
+            while (pendingUpload);
+
             isUpload = false;
         }
     }

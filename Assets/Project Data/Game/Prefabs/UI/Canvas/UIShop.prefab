@@ -1604,6 +1604,10 @@ PrefabInstance:
       value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
+      propertyPath: m_text
+      value: 1.00
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
@@ -1879,7 +1883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: m_text
-      value: 120
+      value: 120.00
       objectReference: {fileID: 0}
     - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -2028,7 +2032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: m_text
-      value: 60
+      value: 60.00
       objectReference: {fileID: 0}
     - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -2310,7 +2314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: m_text
-      value: 10
+      value: 10.00
       objectReference: {fileID: 0}
     - target: {fileID: 2731076730243062802, guid: b6591caabc9ba3245bbb47a13b490cb2, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'

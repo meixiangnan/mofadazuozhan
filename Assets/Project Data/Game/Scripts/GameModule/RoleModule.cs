@@ -442,14 +442,14 @@ public class RoleModule : GameModuleBase
         
         if (!isNotifyLeft && loginLeft > 0 && loginLeft <= AntiAddictionLeftNotifySeconds)
         {
-            NotifyDialog.NotifyClose(DialogState.NoticeConfirmOnly, "防沉迷提示", "        您当前登录的是未成年人帐号，已被纳入防沉迷系统。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六、周日和法定节假日的20：00-21：00登入游戏。\n        您当日剩余游戏时长已不足15分钟，请注意您的游戏时长。");
+            NotifyDialog.NotifyClose(DialogState.NoticeConfirmOnly, "防沉迷提示", "        您当前登录的是未成年人帐号，已被纳入防沉迷系统。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六、周日和法定节假日的20:00-21:00登入游戏。\n        您当日剩余游戏时长已不足15分钟，请注意您的游戏时长。");
             isNotifyLeft = true;
         }
         
         if (!isNotifyTimeOver && loginLeft <= 0)
         {
             GameController.isGamePause = true;
-            NotifyDialog.NotifyClose(DialogState.QuitGame, "防沉迷提示", "        您已被强制下线。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六、周日和法定节假日的20：00-21：00登入游戏。");
+            NotifyDialog.NotifyClose(DialogState.QuitGame, "防沉迷提示", "        您已被强制下线。根据国家新闻出版署《关于防止未成年人沉迷网络游戏的通知》与《关于进一步严格管理 切实防止未成年人沉迷网络游戏的通知》，您可在周五、周六、周日和法定节假日的20:00-21:00登入游戏。");
             isNotifyTimeOver = true;
         }
     }

@@ -144,7 +144,7 @@ namespace Watermelon
                 AudioController.PlaySound(AudioController.Sounds.buttonSound);
 
                 //PUController.PowerUpsUIController.PowerUpPurchasePanel.Show(settings);
-                FloatingMessage.ShowMessage("道具不足");
+                FloatingMessage.ShowMessage("道具不足。");
             }
         }
 

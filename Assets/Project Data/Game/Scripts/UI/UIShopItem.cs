@@ -23,13 +23,13 @@ namespace Watermelon
             var diamondModule = GameGlobal.Instance.GetModule<DiamondModule>();
             if (!diamondModule.SpendDiamond(costDiamond))
             {
-                FloatingMessage.ShowMessage("钻石不足");
+                FloatingMessage.ShowMessage("钻石不足。");
                 return;
             }
 
             var roleModule = GameGlobal.Instance.GetModule<RoleModule>();
             roleModule.AddPowerUp(itemType, itemAmount);
-            FloatingMessage.ShowMessage($"购买成功 +{itemAmount}");
+            FloatingMessage.ShowMessage($"购买成功 +{itemAmount}。");
             onPurchaseSuccess?.Invoke();
         }
     }

@@ -7,7 +7,7 @@ namespace Watermelon
 {
     public static class GameLoading
     {
-        private const float MINIMUM_LOADING_TIME = 5.0f;
+        private const float MINIMUM_LOADING_TIME = 4.0f;
 
         private static AsyncOperation loadingOperation;
 
@@ -66,7 +66,7 @@ namespace Watermelon
             loadingOperation = SceneManager.LoadSceneAsync(sceneIndex);
             loadingOperation.allowSceneActivation = false;
 
-            while (!loadingOperation.isDone || realtimeSinceStartup < minimumFinishTime)
+            while (true)
             {
                 yield return null;
 
@@ -74,10 +74,13 @@ namespace Watermelon
 
                 OnLoading?.Invoke(1.0f, loadingMessage);
 
-                if (loadingOperation.progress >= 0.9f)
+                if (loadingOperation.progress >= 0.9f && realtimeSinceStartup >= minimumFinishTime)
                 {
                     loadingOperation.allowSceneActivation = true;
                 }
+
+                if (loadingOperation.isDone)
+                    break;
             }
 
             if(manualControlMode)

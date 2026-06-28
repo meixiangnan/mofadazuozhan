@@ -63,29 +63,29 @@ namespace Watermelon
         {
             switch (err)
             {
-                case GameErrorCode.Fail          : FloatingMessage.ShowMessage("请求失败，请检查网络或稍后重试"); break;
-                case GameErrorCode.InvaildAccount: FloatingMessage.ShowMessage("请登录"); break;
-                case GameErrorCode.PasswordError: FloatingMessage.ShowMessage("密码错误"); break;
-                case GameErrorCode.InvaildUserId: FloatingMessage.ShowMessage("角色错误"); break;
-                case GameErrorCode.InvaildToken: FloatingMessage.ShowMessage("开始登录"); break;
-                case GameErrorCode.DBError: FloatingMessage.ShowMessage("服务器错误"); break;
-                case GameErrorCode.IdCardLengthError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
-                case GameErrorCode.IdCardDigitError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
-                case GameErrorCode.IdCardAgeError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
-                case GameErrorCode.IdCardAreaError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
-                case GameErrorCode.IdCardCheckSumError: FloatingMessage.ShowMessage("请输入正确的身份证号码"); break;
-                case GameErrorCode.NickNameIsNull: FloatingMessage.ShowMessage("昵称为空"); break;
-                case GameErrorCode.HeadIconIsNull: FloatingMessage.ShowMessage("未选择头像"); break;
-                case GameErrorCode.AccountExists: FloatingMessage.ShowMessage("账号已存在"); break;
-                case GameErrorCode.UserOrPwdNull: FloatingMessage.ShowMessage("用户名和密码不能为空"); break;
+                case GameErrorCode.Fail          : FloatingMessage.ShowMessage("请求失败，请检查网络或稍后重试。"); break;
+                case GameErrorCode.InvaildAccount: FloatingMessage.ShowMessage("请登录。"); break;
+                case GameErrorCode.PasswordError: FloatingMessage.ShowMessage("密码错误。"); break;
+                case GameErrorCode.InvaildUserId: FloatingMessage.ShowMessage("角色错误。"); break;
+                case GameErrorCode.InvaildToken: FloatingMessage.ShowMessage("开始登录。"); break;
+                case GameErrorCode.DBError: FloatingMessage.ShowMessage("服务器错误。"); break;
+                case GameErrorCode.IdCardLengthError: FloatingMessage.ShowMessage("请输入正确的身份证号码。"); break;
+                case GameErrorCode.IdCardDigitError: FloatingMessage.ShowMessage("请输入正确的身份证号码。"); break;
+                case GameErrorCode.IdCardAgeError: FloatingMessage.ShowMessage("请输入正确的身份证号码。"); break;
+                case GameErrorCode.IdCardAreaError: FloatingMessage.ShowMessage("请输入正确的身份证号码。"); break;
+                case GameErrorCode.IdCardCheckSumError: FloatingMessage.ShowMessage("请输入正确的身份证号码。"); break;
+                case GameErrorCode.NickNameIsNull: FloatingMessage.ShowMessage("昵称为空。"); break;
+                case GameErrorCode.HeadIconIsNull: FloatingMessage.ShowMessage("未选择头像。"); break;
+                case GameErrorCode.AccountExists: FloatingMessage.ShowMessage("账号已存在。"); break;
+                case GameErrorCode.UserOrPwdNull: FloatingMessage.ShowMessage("用户名和密码不能为空。"); break;
                 case GameErrorCode.AgeCannotLoginNow: break;
                 case GameErrorCode.AgeDayDuringMoreThanOneHour: break;
                     
                     
                 
-                case GameErrorCode.Succ: FloatingMessage.ShowMessage("成功"); break;
+                case GameErrorCode.Succ: FloatingMessage.ShowMessage("成功。"); break;
                 default:
-                    FloatingMessage.ShowMessage("错误码:" + err); break;
+                    FloatingMessage.ShowMessage("错误码:" + err + "。"); break;
             }
         }
     }

@@ -236,7 +236,7 @@ namespace Watermelon
         {
             if (!int.TryParse(completedLevel, out int level))
             {
-                FloatingMessage.ShowMessage("关卡输入错误");
+                FloatingMessage.ShowMessage("关卡输入错误。");
                 return;
             }
 
@@ -255,7 +255,7 @@ namespace Watermelon
 
             SaveController.Save(true);
             StartCoroutine(GameGlobal.Instance.GetModule<RankModule>().UploadRoleData());
-            FloatingMessage.ShowMessage($"已完成到第{level}关");
+            FloatingMessage.ShowMessage($"已完成到第{level}关。");
         }
 
         public void ResetProgressDev()
@@ -272,7 +272,7 @@ namespace Watermelon
             roleModule.ClearUnlockedHeroes();
 
             SaveController.Save(true);
-            FloatingMessage.ShowMessage("进度已重置到第1关");
+            FloatingMessage.ShowMessage("进度已重置到第1关。");
         }
 
         public void WinCurrentLevelDev()
@@ -338,11 +338,11 @@ namespace Watermelon
             {
                 PlayerPrefs.DeleteAll();
                 SaveController.DeleteSaveFile();
-                FloatingMessage.ShowMessage("服务器数据已清除，请重启游戏");
+                FloatingMessage.ShowMessage("服务器数据已清除，请重启游戏。");
             }
             else
             {
-                FloatingMessage.ShowMessage("清除失败，请检查网络");
+                FloatingMessage.ShowMessage("清除失败，请检查网络。");
             }
         }
 

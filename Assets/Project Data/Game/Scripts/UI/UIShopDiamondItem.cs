@@ -89,7 +89,7 @@ namespace Watermelon
         {
             var diamondModule = GameGlobal.Instance.GetModule<DiamondModule>();
             diamondModule.AddDiamond(diamondAmount);
-            FloatingMessage.ShowMessage($"+{diamondAmount} 钻石");
+            FloatingMessage.ShowMessage($"+{diamondAmount} 钻石。");
             onPurchaseSuccess?.Invoke();
         }
     }
